@@ -25,25 +25,33 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// InlineResponse2006
+    /// A typical 500 error.
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2006 :  IEquatable<InlineResponse2006>, IValidatableObject
+    public partial class InternalServerError :  IEquatable<InternalServerError>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2006" /> class.
+        /// Initializes a new instance of the <see cref="InternalServerError" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        public InlineResponse2006(List<ObitHistory> data = default(List<ObitHistory>))
+        /// <param name="error">error (default to &quot;Internal Server Error&quot;).</param>
+        public InternalServerError(string error = "Internal Server Error")
         {
-            this.Data = data;
+            // use default value if no "error" provided
+            if (error == null)
+            {
+                this.Error = "Internal Server Error";
+            }
+            else
+            {
+                this.Error = error;
+            }
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<ObitHistory> Data { get; set; }
+        [DataMember(Name="error", EmitDefaultValue=false)]
+        public string Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +60,8 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2006 {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class InternalServerError {\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,25 +82,24 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2006);
+            return this.Equals(input as InternalServerError);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2006 instances are equal
+        /// Returns true if InternalServerError instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2006 to be compared</param>
+        /// <param name="input">Instance of InternalServerError to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2006 input)
+        public bool Equals(InternalServerError input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 );
         }
 
@@ -105,8 +112,8 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Error != null)
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 return hashCode;
             }
         }

@@ -25,49 +25,49 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// New Obit def
+    /// ObitsMeta
     /// </summary>
     [DataContract]
-    public partial class ObitDefinition :  IEquatable<ObitDefinition>, IValidatableObject
+    public partial class ObitsMeta :  IEquatable<ObitsMeta>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObitDefinition" /> class.
+        /// Initializes a new instance of the <see cref="ObitsMeta" /> class.
         /// </summary>
-        /// <param name="serialHash">serialHash.</param>
-        /// <param name="usn">usn.</param>
-        /// <param name="obitDid">obitDid.</param>
-        /// <param name="usnBase58">usnBase58.</param>
-        public ObitDefinition(string serialHash = default(string), string usn = default(string), string obitDid = default(string), string usnBase58 = default(string))
+        /// <param name="total">total.</param>
+        /// <param name="perPage">perPage.</param>
+        /// <param name="currentPage">currentPage.</param>
+        /// <param name="lastPage">lastPage.</param>
+        public ObitsMeta(int total = default(int), int perPage = default(int), int currentPage = default(int), int lastPage = default(int))
         {
-            this.SerialHash = serialHash;
-            this.Usn = usn;
-            this.ObitDid = obitDid;
-            this.UsnBase58 = usnBase58;
+            this.Total = total;
+            this.PerPage = perPage;
+            this.CurrentPage = currentPage;
+            this.LastPage = lastPage;
         }
 
         /// <summary>
-        /// Gets or Sets SerialHash
+        /// Gets or Sets Total
         /// </summary>
-        [DataMember(Name="serial_hash", EmitDefaultValue=false)]
-        public string SerialHash { get; set; }
+        [DataMember(Name="total", EmitDefaultValue=false)]
+        public int Total { get; set; }
 
         /// <summary>
-        /// Gets or Sets Usn
+        /// Gets or Sets PerPage
         /// </summary>
-        [DataMember(Name="usn", EmitDefaultValue=false)]
-        public string Usn { get; set; }
+        [DataMember(Name="per_page", EmitDefaultValue=false)]
+        public int PerPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets ObitDid
+        /// Gets or Sets CurrentPage
         /// </summary>
-        [DataMember(Name="obit_did", EmitDefaultValue=false)]
-        public string ObitDid { get; set; }
+        [DataMember(Name="current_page", EmitDefaultValue=false)]
+        public int CurrentPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets UsnBase58
+        /// Gets or Sets LastPage
         /// </summary>
-        [DataMember(Name="usn_base58", EmitDefaultValue=false)]
-        public string UsnBase58 { get; set; }
+        [DataMember(Name="last_page", EmitDefaultValue=false)]
+        public int LastPage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,11 +76,11 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ObitDefinition {\n");
-            sb.Append("  SerialHash: ").Append(SerialHash).Append("\n");
-            sb.Append("  Usn: ").Append(Usn).Append("\n");
-            sb.Append("  ObitDid: ").Append(ObitDid).Append("\n");
-            sb.Append("  UsnBase58: ").Append(UsnBase58).Append("\n");
+            sb.Append("class ObitsMeta {\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
+            sb.Append("  PerPage: ").Append(PerPage).Append("\n");
+            sb.Append("  CurrentPage: ").Append(CurrentPage).Append("\n");
+            sb.Append("  LastPage: ").Append(LastPage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,39 +101,39 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ObitDefinition);
+            return this.Equals(input as ObitsMeta);
         }
 
         /// <summary>
-        /// Returns true if ObitDefinition instances are equal
+        /// Returns true if ObitsMeta instances are equal
         /// </summary>
-        /// <param name="input">Instance of ObitDefinition to be compared</param>
+        /// <param name="input">Instance of ObitsMeta to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ObitDefinition input)
+        public bool Equals(ObitsMeta input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.SerialHash == input.SerialHash ||
-                    (this.SerialHash != null &&
-                    this.SerialHash.Equals(input.SerialHash))
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 ) && 
                 (
-                    this.Usn == input.Usn ||
-                    (this.Usn != null &&
-                    this.Usn.Equals(input.Usn))
+                    this.PerPage == input.PerPage ||
+                    (this.PerPage != null &&
+                    this.PerPage.Equals(input.PerPage))
                 ) && 
                 (
-                    this.ObitDid == input.ObitDid ||
-                    (this.ObitDid != null &&
-                    this.ObitDid.Equals(input.ObitDid))
+                    this.CurrentPage == input.CurrentPage ||
+                    (this.CurrentPage != null &&
+                    this.CurrentPage.Equals(input.CurrentPage))
                 ) && 
                 (
-                    this.UsnBase58 == input.UsnBase58 ||
-                    (this.UsnBase58 != null &&
-                    this.UsnBase58.Equals(input.UsnBase58))
+                    this.LastPage == input.LastPage ||
+                    (this.LastPage != null &&
+                    this.LastPage.Equals(input.LastPage))
                 );
         }
 
@@ -146,14 +146,14 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SerialHash != null)
-                    hashCode = hashCode * 59 + this.SerialHash.GetHashCode();
-                if (this.Usn != null)
-                    hashCode = hashCode * 59 + this.Usn.GetHashCode();
-                if (this.ObitDid != null)
-                    hashCode = hashCode * 59 + this.ObitDid.GetHashCode();
-                if (this.UsnBase58 != null)
-                    hashCode = hashCode * 59 + this.UsnBase58.GetHashCode();
+                if (this.Total != null)
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
+                if (this.PerPage != null)
+                    hashCode = hashCode * 59 + this.PerPage.GetHashCode();
+                if (this.CurrentPage != null)
+                    hashCode = hashCode * 59 + this.CurrentPage.GetHashCode();
+                if (this.LastPage != null)
+                    hashCode = hashCode * 59 + this.LastPage.GetHashCode();
                 return hashCode;
             }
         }

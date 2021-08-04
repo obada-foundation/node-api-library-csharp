@@ -25,33 +25,33 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// InlineResponse2003
+    /// New Obit Id
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2003 :  IEquatable<InlineResponse2003>, IValidatableObject
+    public partial class ObitId :  IEquatable<ObitId>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
+        /// Initializes a new instance of the <see cref="ObitId" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="rootHash">rootHash.</param>
-        public InlineResponse2003(int status = default(int), string rootHash = default(string))
+        /// <param name="id">id.</param>
+        /// <param name="did">did.</param>
+        public ObitId(string id = default(string), string did = default(string))
         {
-            this.Status = status;
-            this.RootHash = rootHash;
+            this.Id = id;
+            this.Did = did;
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public int Status { get; set; }
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets RootHash
+        /// Gets or Sets Did
         /// </summary>
-        [DataMember(Name="root_hash", EmitDefaultValue=false)]
-        public string RootHash { get; set; }
+        [DataMember(Name="did", EmitDefaultValue=false)]
+        public string Did { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +60,9 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2003 {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  RootHash: ").Append(RootHash).Append("\n");
+            sb.Append("class ObitId {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Did: ").Append(Did).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +83,29 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2003);
+            return this.Equals(input as ObitId);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2003 instances are equal
+        /// Returns true if ObitId instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2003 to be compared</param>
+        /// <param name="input">Instance of ObitId to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2003 input)
+        public bool Equals(ObitId input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.RootHash == input.RootHash ||
-                    (this.RootHash != null &&
-                    this.RootHash.Equals(input.RootHash))
+                    this.Did == input.Did ||
+                    (this.Did != null &&
+                    this.Did.Equals(input.Did))
                 );
         }
 
@@ -118,10 +118,10 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.RootHash != null)
-                    hashCode = hashCode * 59 + this.RootHash.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Did != null)
+                    hashCode = hashCode * 59 + this.Did.GetHashCode();
                 return hashCode;
             }
         }

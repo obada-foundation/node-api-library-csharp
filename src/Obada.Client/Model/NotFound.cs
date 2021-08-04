@@ -33,41 +33,25 @@ namespace Obada.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotFound" /> class.
         /// </summary>
-        /// <param name="code">code (default to 404).</param>
-        /// <param name="message">message (default to &quot;The requested resource could not be found.&quot;).</param>
-        public NotFound(int code = 404, string message = "The requested resource could not be found.")
+        /// <param name="error">error (default to &quot;Not found&quot;).</param>
+        public NotFound(string error = "Not found")
         {
-            // use default value if no "code" provided
-            if (code == null)
+            // use default value if no "error" provided
+            if (error == null)
             {
-                this.Code = 404;
+                this.Error = "Not found";
             }
             else
             {
-                this.Code = code;
-            }
-            // use default value if no "message" provided
-            if (message == null)
-            {
-                this.Message = "The requested resource could not be found.";
-            }
-            else
-            {
-                this.Message = message;
+                this.Error = error;
             }
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public int Code { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Message
-        /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
+        [DataMember(Name="error", EmitDefaultValue=false)]
+        public string Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,8 +61,7 @@ namespace Obada.Client.Model
         {
             var sb = new StringBuilder();
             sb.Append("class NotFound {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,14 +97,9 @@ namespace Obada.Client.Model
 
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 );
         }
 
@@ -134,10 +112,8 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.Error != null)
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 return hashCode;
             }
         }

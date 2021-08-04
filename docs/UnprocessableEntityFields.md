@@ -1,13 +1,12 @@
 
-# Obada.Client.Model.InlineResponse201
+# Obada.Client.Model.UnprocessableEntityFields
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Did** | **string** |  | [optional] 
-**Usn** | **string** |  | [optional] 
-**Hash** | **string** |  | [optional] 
+**Field** | **string** |  | [optional] [default to "serial_number"]
+**Error** | **string** |  | [optional] [default to "serial_number is a required field"]
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

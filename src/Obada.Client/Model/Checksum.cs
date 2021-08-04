@@ -25,58 +25,25 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// Document hashlink
+    /// Obit checksum
     /// </summary>
     [DataContract]
-    public partial class LocalObitDocuments :  IEquatable<LocalObitDocuments>, IValidatableObject
+    public partial class Checksum :  IEquatable<Checksum>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalObitDocuments" /> class.
+        /// Initializes a new instance of the <see cref="Checksum" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LocalObitDocuments() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LocalObitDocuments" /> class.
-        /// </summary>
-        /// <param name="name">Associative name of hashlink (required).</param>
-        /// <param name="hashlink">Hashlink (required).</param>
-        public LocalObitDocuments(string name = default(string), string hashlink = default(string))
+        /// <param name="checksum">checksum.</param>
+        public Checksum(string checksum = default(string))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new InvalidDataException("name is a required property for LocalObitDocuments and cannot be null");
-            }
-            else
-            {
-                this.Name = name;
-            }
-
-            // to ensure "hashlink" is required (not null)
-            if (hashlink == null)
-            {
-                throw new InvalidDataException("hashlink is a required property for LocalObitDocuments and cannot be null");
-            }
-            else
-            {
-                this.Hashlink = hashlink;
-            }
-
+            this._Checksum = checksum;
         }
 
         /// <summary>
-        /// Associative name of hashlink
+        /// Gets or Sets _Checksum
         /// </summary>
-        /// <value>Associative name of hashlink</value>
-        [DataMember(Name="name", EmitDefaultValue=true)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Hashlink
-        /// </summary>
-        /// <value>Hashlink</value>
-        [DataMember(Name="hashlink", EmitDefaultValue=true)]
-        public string Hashlink { get; set; }
+        [DataMember(Name="checksum", EmitDefaultValue=false)]
+        public string _Checksum { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,9 +52,8 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LocalObitDocuments {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Hashlink: ").Append(Hashlink).Append("\n");
+            sb.Append("class Checksum {\n");
+            sb.Append("  _Checksum: ").Append(_Checksum).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,29 +74,24 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LocalObitDocuments);
+            return this.Equals(input as Checksum);
         }
 
         /// <summary>
-        /// Returns true if LocalObitDocuments instances are equal
+        /// Returns true if Checksum instances are equal
         /// </summary>
-        /// <param name="input">Instance of LocalObitDocuments to be compared</param>
+        /// <param name="input">Instance of Checksum to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LocalObitDocuments input)
+        public bool Equals(Checksum input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Hashlink == input.Hashlink ||
-                    (this.Hashlink != null &&
-                    this.Hashlink.Equals(input.Hashlink))
+                    this._Checksum == input._Checksum ||
+                    (this._Checksum != null &&
+                    this._Checksum.Equals(input._Checksum))
                 );
         }
 
@@ -143,10 +104,8 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Hashlink != null)
-                    hashCode = hashCode * 59 + this.Hashlink.GetHashCode();
+                if (this._Checksum != null)
+                    hashCode = hashCode * 59 + this._Checksum.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,26 +33,17 @@ namespace Obada.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="obits">Get description from Rohi.</param>
-        public InlineResponse200(int status = default(int), List<Obit> obits = default(List<Obit>))
+        /// <param name="data">data.</param>
+        public InlineResponse200(List<ObitHistory> data = default(List<ObitHistory>))
         {
-            this.Status = status;
-            this.Obits = obits;
+            this.Data = data;
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public int Status { get; set; }
-
-        /// <summary>
-        /// Get description from Rohi
-        /// </summary>
-        /// <value>Get description from Rohi</value>
-        [DataMember(Name="obits", EmitDefaultValue=false)]
-        public List<Obit> Obits { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public List<ObitHistory> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,8 +53,7 @@ namespace Obada.Client.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse200 {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Obits: ").Append(Obits).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,15 +89,10 @@ namespace Obada.Client.Model
 
             return 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.Obits == input.Obits ||
-                    this.Obits != null &&
-                    input.Obits != null &&
-                    this.Obits.SequenceEqual(input.Obits)
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 
@@ -120,10 +105,8 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.Obits != null)
-                    hashCode = hashCode * 59 + this.Obits.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

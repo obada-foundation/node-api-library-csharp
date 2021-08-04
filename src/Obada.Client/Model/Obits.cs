@@ -25,18 +25,20 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// InlineResponse2005
+    /// Obits search response
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2005 :  IEquatable<InlineResponse2005>, IValidatableObject
+    public partial class Obits :  IEquatable<Obits>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2005" /> class.
+        /// Initializes a new instance of the <see cref="Obits" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public InlineResponse2005(List<Obit> data = default(List<Obit>))
+        /// <param name="meta">meta.</param>
+        public Obits(List<Obit> data = default(List<Obit>), ObitsMeta meta = default(ObitsMeta))
         {
             this.Data = data;
+            this.Meta = meta;
         }
 
         /// <summary>
@@ -46,14 +48,21 @@ namespace Obada.Client.Model
         public List<Obit> Data { get; set; }
 
         /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name="meta", EmitDefaultValue=false)]
+        public ObitsMeta Meta { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2005 {\n");
+            sb.Append("class Obits {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,15 +83,15 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2005);
+            return this.Equals(input as Obits);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2005 instances are equal
+        /// Returns true if Obits instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2005 to be compared</param>
+        /// <param name="input">Instance of Obits to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2005 input)
+        public bool Equals(Obits input)
         {
             if (input == null)
                 return false;
@@ -93,6 +102,11 @@ namespace Obada.Client.Model
                     this.Data != null &&
                     input.Data != null &&
                     this.Data.SequenceEqual(input.Data)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -107,6 +121,8 @@ namespace Obada.Client.Model
                 int hashCode = 41;
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Meta != null)
+                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
                 return hashCode;
             }
         }

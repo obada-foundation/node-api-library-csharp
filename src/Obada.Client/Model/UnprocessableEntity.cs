@@ -33,49 +33,33 @@ namespace Obada.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnprocessableEntity" /> class.
         /// </summary>
-        /// <param name="code">code (default to 422).</param>
-        /// <param name="message">message (default to &quot;The given data was invalid.&quot;).</param>
-        /// <param name="errors">errors.</param>
-        public UnprocessableEntity(int code = 422, string message = "The given data was invalid.", Dictionary<string, List<string>> errors = default(Dictionary<string, List<string>>))
+        /// <param name="error">error (default to &quot;data validation error&quot;).</param>
+        /// <param name="fields">fields.</param>
+        public UnprocessableEntity(string error = "data validation error", List<UnprocessableEntityFields> fields = default(List<UnprocessableEntityFields>))
         {
-            // use default value if no "code" provided
-            if (code == null)
+            // use default value if no "error" provided
+            if (error == null)
             {
-                this.Code = 422;
+                this.Error = "data validation error";
             }
             else
             {
-                this.Code = code;
+                this.Error = error;
             }
-            // use default value if no "message" provided
-            if (message == null)
-            {
-                this.Message = "The given data was invalid.";
-            }
-            else
-            {
-                this.Message = message;
-            }
-            this.Errors = errors;
+            this.Fields = fields;
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public int Code { get; set; }
+        [DataMember(Name="error", EmitDefaultValue=false)]
+        public string Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Gets or Sets Fields
         /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Errors
-        /// </summary>
-        [DataMember(Name="errors", EmitDefaultValue=false)]
-        public Dictionary<string, List<string>> Errors { get; set; }
+        [DataMember(Name="fields", EmitDefaultValue=false)]
+        public List<UnprocessableEntityFields> Fields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,9 +69,8 @@ namespace Obada.Client.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UnprocessableEntity {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,20 +106,15 @@ namespace Obada.Client.Model
 
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.Errors == input.Errors ||
-                    this.Errors != null &&
-                    input.Errors != null &&
-                    this.Errors.SequenceEqual(input.Errors)
+                    this.Fields == input.Fields ||
+                    this.Fields != null &&
+                    input.Fields != null &&
+                    this.Fields.SequenceEqual(input.Fields)
                 );
         }
 
@@ -149,12 +127,10 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                if (this.Errors != null)
-                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                if (this.Error != null)
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
+                if (this.Fields != null)
+                    hashCode = hashCode * 59 + this.Fields.GetHashCode();
                 return hashCode;
             }
         }

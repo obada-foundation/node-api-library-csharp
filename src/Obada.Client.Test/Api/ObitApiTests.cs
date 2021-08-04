@@ -64,83 +64,76 @@ namespace Obada.Client.Test
 
         
         /// <summary>
-        /// Test CreateObit
+        /// Test Checksum
         /// </summary>
         [Test]
-        public void CreateObitTest()
+        public void ChecksumTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Obit obit = null;
-            //var response = instance.CreateObit(obit);
-            //Assert.IsInstanceOf(typeof(InlineResponse201), response, "response is InlineResponse201");
+            //var response = instance.Checksum(obit);
+            //Assert.IsInstanceOf(typeof(Checksum), response, "response is Checksum");
         }
         
         /// <summary>
-        /// Test RemoveObit
+        /// Test GenerateId
         /// </summary>
         [Test]
-        public void RemoveObitTest()
+        public void GenerateIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //RequestObitId requestObitId = null;
+            //var response = instance.GenerateId(requestObitId);
+            //Assert.IsInstanceOf(typeof(ObitId), response, "response is ObitId");
+        }
+        
+        /// <summary>
+        /// Test Get
+        /// </summary>
+        [Test]
+        public void GetTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string obitDid = null;
-            //instance.RemoveObit(obitDid);
-            
-        }
-        
-        /// <summary>
-        /// Test SearchObits
-        /// </summary>
-        [Test]
-        public void SearchObitsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string serialNumberHash = null;
-            //string obitStatus = null;
-            //string manufacturer = null;
-            //string partNumber = null;
-            //string usn = null;
-            //string ownerDid = null;
-            //int? offset = null;
-            //int? limit = null;
-            //var response = instance.SearchObits(serialNumberHash, obitStatus, manufacturer, partNumber, usn, ownerDid, offset, limit);
-            //Assert.IsInstanceOf(typeof(InlineResponse2005), response, "response is InlineResponse2005");
-        }
-        
-        /// <summary>
-        /// Test ShowObit
-        /// </summary>
-        [Test]
-        public void ShowObitTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string obitDid = null;
-            //var response = instance.ShowObit(obitDid);
+            //var response = instance.Get(obitDid);
             //Assert.IsInstanceOf(typeof(Obit), response, "response is Obit");
         }
         
         /// <summary>
-        /// Test ShowObitHistory
+        /// Test History
         /// </summary>
         [Test]
-        public void ShowObitHistoryTest()
+        public void HistoryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string obitDid = null;
-            //var response = instance.ShowObitHistory(obitDid);
-            //Assert.IsInstanceOf(typeof(InlineResponse2006), response, "response is InlineResponse2006");
+            //var response = instance.History(obitDid);
+            //Assert.IsInstanceOf(typeof(InlineResponse200), response, "response is InlineResponse200");
         }
         
         /// <summary>
-        /// Test UpdateObit
+        /// Test Save
         /// </summary>
         [Test]
-        public void UpdateObitTest()
+        public void SaveTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string obitDid = null;
             //Obit obit = null;
-            //instance.UpdateObit(obitDid, obit);
+            //instance.Save(obit);
             
+        }
+        
+        /// <summary>
+        /// Test Search
+        /// </summary>
+        [Test]
+        public void SearchTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string q = null;
+            //int? offset = null;
+            //var response = instance.Search(q, offset);
+            //Assert.IsInstanceOf(typeof(Obits), response, "response is Obits");
         }
         
     }

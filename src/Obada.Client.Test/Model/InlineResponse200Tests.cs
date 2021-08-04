@@ -66,20 +66,12 @@ namespace Obada.Client.Test
 
 
         /// <summary>
-        /// Test the property 'Status'
+        /// Test the property 'Data'
         /// </summary>
         [Test]
-        public void StatusTest()
+        public void DataTest()
         {
-            // TODO unit test for the property 'Status'
-        }
-        /// <summary>
-        /// Test the property 'Obits'
-        /// </summary>
-        [Test]
-        public void ObitsTest()
-        {
-            // TODO unit test for the property 'Obits'
+            // TODO unit test for the property 'Data'
         }
 
     }

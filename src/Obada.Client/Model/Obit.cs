@@ -51,8 +51,8 @@ namespace Obada.Client.Model
         /// <param name="docLinks">To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. .</param>
         /// <param name="structuredData">Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)).</param>
         /// <param name="modifiedOn">UNIX timestamp.</param>
-        /// <param name="rootHash">Hash calculated by SHA256 (previous Obit root hash + Obit data). TODO: Discuss root hash with Rohi. .</param>
-        public Obit(string obitDid = default(string), string usn = default(string), List<string> obitAlternateIds = default(List<string>), string ownerDid = default(string), string obdDid = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), List<MetaDataRecord> metadata = default(List<MetaDataRecord>), List<DocumentLink> docLinks = default(List<DocumentLink>), List<StructureDataRecord> structuredData = default(List<StructureDataRecord>), long modifiedOn = default(long), string rootHash = default(string))
+        /// <param name="checksum">Hash calculated by SHA256 (previous Obit checksum + Obit data). .</param>
+        public Obit(string obitDid = default(string), string usn = default(string), List<string> obitAlternateIds = default(List<string>), string ownerDid = default(string), string obdDid = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), List<MetaDataRecord> metadata = default(List<MetaDataRecord>), List<DocumentLink> docLinks = default(List<DocumentLink>), List<StructureDataRecord> structuredData = default(List<StructureDataRecord>), long modifiedOn = default(long), string checksum = default(string))
         {
             // to ensure "ownerDid" is required (not null)
             if (ownerDid == null)
@@ -103,7 +103,7 @@ namespace Obada.Client.Model
             this.DocLinks = docLinks;
             this.StructuredData = structuredData;
             this.ModifiedOn = modifiedOn;
-            this.RootHash = rootHash;
+            this.Checksum = checksum;
         }
 
         /// <summary>
@@ -198,11 +198,11 @@ namespace Obada.Client.Model
         public long ModifiedOn { get; set; }
 
         /// <summary>
-        /// Hash calculated by SHA256 (previous Obit root hash + Obit data). TODO: Discuss root hash with Rohi. 
+        /// Hash calculated by SHA256 (previous Obit checksum + Obit data). 
         /// </summary>
-        /// <value>Hash calculated by SHA256 (previous Obit root hash + Obit data). TODO: Discuss root hash with Rohi. </value>
-        [DataMember(Name="root_hash", EmitDefaultValue=false)]
-        public string RootHash { get; set; }
+        /// <value>Hash calculated by SHA256 (previous Obit checksum + Obit data). </value>
+        [DataMember(Name="checksum", EmitDefaultValue=false)]
+        public string Checksum { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -225,7 +225,7 @@ namespace Obada.Client.Model
             sb.Append("  DocLinks: ").Append(DocLinks).Append("\n");
             sb.Append("  StructuredData: ").Append(StructuredData).Append("\n");
             sb.Append("  ModifiedOn: ").Append(ModifiedOn).Append("\n");
-            sb.Append("  RootHash: ").Append(RootHash).Append("\n");
+            sb.Append("  Checksum: ").Append(Checksum).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -330,9 +330,9 @@ namespace Obada.Client.Model
                     this.ModifiedOn.Equals(input.ModifiedOn))
                 ) && 
                 (
-                    this.RootHash == input.RootHash ||
-                    (this.RootHash != null &&
-                    this.RootHash.Equals(input.RootHash))
+                    this.Checksum == input.Checksum ||
+                    (this.Checksum != null &&
+                    this.Checksum.Equals(input.Checksum))
                 );
         }
 
@@ -371,8 +371,8 @@ namespace Obada.Client.Model
                     hashCode = hashCode * 59 + this.StructuredData.GetHashCode();
                 if (this.ModifiedOn != null)
                     hashCode = hashCode * 59 + this.ModifiedOn.GetHashCode();
-                if (this.RootHash != null)
-                    hashCode = hashCode * 59 + this.RootHash.GetHashCode();
+                if (this.Checksum != null)
+                    hashCode = hashCode * 59 + this.Checksum.GetHashCode();
                 return hashCode;
             }
         }

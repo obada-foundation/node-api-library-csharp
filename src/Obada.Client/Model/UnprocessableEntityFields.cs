@@ -25,33 +25,49 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// InlineResponse2001
+    /// UnprocessableEntityFields
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2001 :  IEquatable<InlineResponse2001>, IValidatableObject
+    public partial class UnprocessableEntityFields :  IEquatable<UnprocessableEntityFields>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
+        /// Initializes a new instance of the <see cref="UnprocessableEntityFields" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="obit">obit.</param>
-        public InlineResponse2001(int status = default(int), ClientObit obit = default(ClientObit))
+        /// <param name="field">field (default to &quot;serial_number&quot;).</param>
+        /// <param name="error">error (default to &quot;serial_number is a required field&quot;).</param>
+        public UnprocessableEntityFields(string field = "serial_number", string error = "serial_number is a required field")
         {
-            this.Status = status;
-            this.Obit = obit;
+            // use default value if no "field" provided
+            if (field == null)
+            {
+                this.Field = "serial_number";
+            }
+            else
+            {
+                this.Field = field;
+            }
+            // use default value if no "error" provided
+            if (error == null)
+            {
+                this.Error = "serial_number is a required field";
+            }
+            else
+            {
+                this.Error = error;
+            }
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Gets or Sets Field
         /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public int Status { get; set; }
+        [DataMember(Name="field", EmitDefaultValue=false)]
+        public string Field { get; set; }
 
         /// <summary>
-        /// Gets or Sets Obit
+        /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="obit", EmitDefaultValue=false)]
-        public ClientObit Obit { get; set; }
+        [DataMember(Name="error", EmitDefaultValue=false)]
+        public string Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +76,9 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2001 {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Obit: ").Append(Obit).Append("\n");
+            sb.Append("class UnprocessableEntityFields {\n");
+            sb.Append("  Field: ").Append(Field).Append("\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +99,29 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2001);
+            return this.Equals(input as UnprocessableEntityFields);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2001 instances are equal
+        /// Returns true if UnprocessableEntityFields instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2001 to be compared</param>
+        /// <param name="input">Instance of UnprocessableEntityFields to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2001 input)
+        public bool Equals(UnprocessableEntityFields input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Field == input.Field ||
+                    (this.Field != null &&
+                    this.Field.Equals(input.Field))
                 ) && 
                 (
-                    this.Obit == input.Obit ||
-                    (this.Obit != null &&
-                    this.Obit.Equals(input.Obit))
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 );
         }
 
@@ -118,10 +134,10 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.Obit != null)
-                    hashCode = hashCode * 59 + this.Obit.GetHashCode();
+                if (this.Field != null)
+                    hashCode = hashCode * 59 + this.Field.GetHashCode();
+                if (this.Error != null)
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,11 +1,13 @@
 
-# Obada.Client.Model.InlineResponse2006
+# Obada.Client.Model.RequestObitId
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**List&lt;ObitHistory&gt;**](ObitHistory.md) |  | [optional] 
+**Manufacturer** | **string** | Manufacturer (Required) | 
+**PartNumber** | **string** | Part Number (Required) | 
+**SerialNumber** | **string** | Serial Number (Required) | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

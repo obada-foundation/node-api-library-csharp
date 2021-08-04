@@ -170,12 +170,12 @@ namespace Obada.Client.Test
             // TODO unit test for the property 'ModifiedOn'
         }
         /// <summary>
-        /// Test the property 'RootHash'
+        /// Test the property 'Checksum'
         /// </summary>
         [Test]
-        public void RootHashTest()
+        public void ChecksumTest()
         {
-            // TODO unit test for the property 'RootHash'
+            // TODO unit test for the property 'Checksum'
         }
 
     }

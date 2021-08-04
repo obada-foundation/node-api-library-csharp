@@ -1,12 +1,14 @@
 
-# Obada.Client.Model.InlineResponse2003
+# Obada.Client.Model.ObitsMeta
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **int** |  | [optional] 
-**RootHash** | **string** |  | [optional] 
+**Total** | **int** |  | [optional] 
+**PerPage** | **int** |  | [optional] 
+**CurrentPage** | **int** |  | [optional] 
+**LastPage** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

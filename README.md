@@ -78,19 +78,19 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "https://dev.api.obada.io";
-            var apiInstance = new HelperApi(Configuration.Default);
-            var obitDid = did:obada:81413bc1ad2074a6ae35d1f65f64f1bca2e8a20959f37ef0349a729ddc567d9b;  // string | Required.
+            Configuration.Default.BasePath = "https://dev.node.obada.io";
+            var apiInstance = new ObitApi(Configuration.Default);
+            var obit = new Obit(); // Obit |  (optional) 
 
             try
             {
-                // Get Obit From Blockchain
-                InlineResponse2002 result = apiInstance.FetchObitFromChain(obitDid);
+                // Generates the obit checksum.
+                Checksum result = apiInstance.Checksum(obit);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling HelperApi.FetchObitFromChain: " + e.Message );
+                Debug.Print("Exception when calling ObitApi.Checksum: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -102,46 +102,35 @@ namespace Example
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://dev.api.obada.io*
+All URIs are relative to *https://dev.node.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*HelperApi* | [**FetchObitFromChain**](docs/HelperApi.md#fetchobitfromchain) | **GET** /api/server/obit/{obit_did} | Get Obit From Blockchain
-*HelperApi* | [**GenerateObitDef**](docs/HelperApi.md#generateobitdef) | **GET** /api/obit/definition | Generate Obit Definition
-*HelperApi* | [**GenerateRootHash**](docs/HelperApi.md#generateroothash) | **POST** /api/obit/hash | Generates The Root Hash using the data provided.
-*HelperApi* | [**GetClientObit**](docs/HelperApi.md#getclientobit) | **GET** /api/client/obit/{obit_did} | Get Client Obit
-*HelperApi* | [**GetClientObits**](docs/HelperApi.md#getclientobits) | **GET** /api/client/obits | Returns a list of client obits
-*HelperApi* | [**SaveClientObit**](docs/HelperApi.md#saveclientobit) | **POST** /api/client/obit | Save Client Obit
-*ObitApi* | [**CreateObit**](docs/ObitApi.md#createobit) | **POST** /obits | 
-*ObitApi* | [**RemoveObit**](docs/ObitApi.md#removeobit) | **DELETE** /obits/{obit_did} | 
-*ObitApi* | [**SearchObits**](docs/ObitApi.md#searchobits) | **GET** /obits | 
-*ObitApi* | [**ShowObit**](docs/ObitApi.md#showobit) | **GET** /obits/{obit_did} | 
-*ObitApi* | [**ShowObitHistory**](docs/ObitApi.md#showobithistory) | **GET** /obits/{obit_did}/history | 
-*ObitApi* | [**UpdateObit**](docs/ObitApi.md#updateobit) | **PUT** /obits/{obit_did} | 
+*ObitApi* | [**Checksum**](docs/ObitApi.md#checksum) | **POST** /obit/checksum | Generates the obit checksum.
+*ObitApi* | [**GenerateId**](docs/ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
+*ObitApi* | [**Get**](docs/ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
+*ObitApi* | [**History**](docs/ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
+*ObitApi* | [**Save**](docs/ObitApi.md#save) | **POST** /obits | Save Obit
+*ObitApi* | [**Search**](docs/ObitApi.md#search) | **GET** /obits | Search obits by query
 
 
 ## Documentation for Models
 
- - [Model.BlockChainObit](docs/BlockChainObit.md)
- - [Model.ClientObit](docs/ClientObit.md)
+ - [Model.Checksum](docs/Checksum.md)
  - [Model.DocumentLink](docs/DocumentLink.md)
  - [Model.InlineResponse200](docs/InlineResponse200.md)
- - [Model.InlineResponse2001](docs/InlineResponse2001.md)
- - [Model.InlineResponse2002](docs/InlineResponse2002.md)
- - [Model.InlineResponse2003](docs/InlineResponse2003.md)
- - [Model.InlineResponse2004](docs/InlineResponse2004.md)
- - [Model.InlineResponse2005](docs/InlineResponse2005.md)
- - [Model.InlineResponse2006](docs/InlineResponse2006.md)
- - [Model.InlineResponse201](docs/InlineResponse201.md)
- - [Model.LocalObit](docs/LocalObit.md)
- - [Model.LocalObitDocuments](docs/LocalObitDocuments.md)
+ - [Model.InternalServerError](docs/InternalServerError.md)
  - [Model.MetaDataRecord](docs/MetaDataRecord.md)
  - [Model.NotFound](docs/NotFound.md)
  - [Model.Obit](docs/Obit.md)
- - [Model.ObitDefinition](docs/ObitDefinition.md)
  - [Model.ObitHistory](docs/ObitHistory.md)
+ - [Model.ObitId](docs/ObitId.md)
+ - [Model.Obits](docs/Obits.md)
+ - [Model.ObitsMeta](docs/ObitsMeta.md)
+ - [Model.RequestObitId](docs/RequestObitId.md)
  - [Model.StructureDataRecord](docs/StructureDataRecord.md)
  - [Model.UnprocessableEntity](docs/UnprocessableEntity.md)
+ - [Model.UnprocessableEntityFields](docs/UnprocessableEntityFields.md)
 
 
 ## Documentation for Authorization

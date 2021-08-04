@@ -26,303 +26,275 @@ namespace Obada.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Generates the obit checksum.
         /// </summary>
         /// <remarks>
-        /// Creates a new obit.
+        /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
-        /// <returns>InlineResponse201</returns>
-        InlineResponse201 CreateObit (Obit obit = default(Obit));
+        /// <returns>Checksum</returns>
+        Checksum Checksum (Obit obit = default(Obit));
 
         /// <summary>
-        /// 
+        /// Generates the obit checksum.
         /// </summary>
         /// <remarks>
-        /// Creates a new obit.
+        /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        ApiResponse<InlineResponse201> CreateObitWithHttpInfo (Obit obit = default(Obit));
+        /// <returns>ApiResponse of Checksum</returns>
+        ApiResponse<Checksum> ChecksumWithHttpInfo (Obit obit = default(Obit));
         /// <summary>
-        /// 
+        /// Generate Obit ID
         /// </summary>
         /// <remarks>
-        /// Changes Obit status to DISABLED_BY_OWNER
+        /// Returns the Obit ID for a given device_id, part_number and serial_number input.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
-        /// <returns></returns>
-        void RemoveObit (string obitDid);
+        /// <param name="requestObitId"> (optional)</param>
+        /// <returns>ObitId</returns>
+        ObitId GenerateId (RequestObitId requestObitId = default(RequestObitId));
 
         /// <summary>
-        /// 
+        /// Generate Obit ID
         /// </summary>
         /// <remarks>
-        /// Changes Obit status to DISABLED_BY_OWNER
+        /// Returns the Obit ID for a given device_id, part_number and serial_number input.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RemoveObitWithHttpInfo (string obitDid);
+        /// <param name="requestObitId"> (optional)</param>
+        /// <returns>ApiResponse of ObitId</returns>
+        ApiResponse<ObitId> GenerateIdWithHttpInfo (RequestObitId requestObitId = default(RequestObitId));
         /// <summary>
-        /// 
+        /// Get Obit by DID or USN
         /// </summary>
         /// <remarks>
-        /// Search obits by given filters.
-        /// </remarks>
-        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serialNumberHash">Query argument that filters by serial number hash (optional)</param>
-        /// <param name="obitStatus">Query argument that filters by obit status (optional)</param>
-        /// <param name="manufacturer">Query argument that filters by manufacturer (optional)</param>
-        /// <param name="partNumber">Query argument that filters by part number (optional)</param>
-        /// <param name="usn">Universal serial number (optional)</param>
-        /// <param name="ownerDid">OBADA owner DID (optional)</param>
-        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of records to return. (optional, default to 0)</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 SearchObits (string serialNumberHash = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string usn = default(string), string ownerDid = default(string), int? offset = default(int?), int? limit = default(int?));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Search obits by given filters.
-        /// </remarks>
-        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serialNumberHash">Query argument that filters by serial number hash (optional)</param>
-        /// <param name="obitStatus">Query argument that filters by obit status (optional)</param>
-        /// <param name="manufacturer">Query argument that filters by manufacturer (optional)</param>
-        /// <param name="partNumber">Query argument that filters by part number (optional)</param>
-        /// <param name="usn">Universal serial number (optional)</param>
-        /// <param name="ownerDid">OBADA owner DID (optional)</param>
-        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of records to return. (optional, default to 0)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> SearchObitsWithHttpInfo (string serialNumberHash = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string usn = default(string), string ownerDid = default(string), int? offset = default(int?), int? limit = default(int?));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Shows the information about single Obit by given ObitDID
+        /// Get a single Obit by given ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <returns>Obit</returns>
-        Obit ShowObit (string obitDid);
+        Obit Get (string obitDid);
 
         /// <summary>
-        /// 
+        /// Get Obit by DID or USN
         /// </summary>
         /// <remarks>
-        /// Shows the information about single Obit by given ObitDID
+        /// Get a single Obit by given ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <returns>ApiResponse of Obit</returns>
-        ApiResponse<Obit> ShowObitWithHttpInfo (string obitDid);
+        ApiResponse<Obit> GetWithHttpInfo (string obitDid);
         /// <summary>
-        /// 
+        /// Get Obit history by DID or USN
         /// </summary>
         /// <remarks>
-        /// Shows the history of changes by given Obit with ObitDID
+        /// Shows the history of changes by given Obit with ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
-        /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 ShowObitHistory (string obitDid);
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 History (string obitDid);
 
         /// <summary>
-        /// 
+        /// Get Obit history by DID or USN
         /// </summary>
         /// <remarks>
-        /// Shows the history of changes by given Obit with ObitDID
+        /// Shows the history of changes by given Obit with ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> ShowObitHistoryWithHttpInfo (string obitDid);
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> HistoryWithHttpInfo (string obitDid);
         /// <summary>
-        /// 
+        /// Save Obit
         /// </summary>
         /// <remarks>
-        /// Updates Obit by given ObitDID with payload
+        /// Returns Obit with updated checksum if data was changed.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="obit"> (optional)</param>
         /// <returns></returns>
-        void UpdateObit (string obitDid, Obit obit = default(Obit));
+        void Save (Obit obit = default(Obit));
 
         /// <summary>
-        /// 
+        /// Save Obit
         /// </summary>
         /// <remarks>
-        /// Updates Obit by given ObitDID with payload
+        /// Returns Obit with updated checksum if data was changed.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="obit"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateObitWithHttpInfo (string obitDid, Obit obit = default(Obit));
+        ApiResponse<Object> SaveWithHttpInfo (Obit obit = default(Obit));
+        /// <summary>
+        /// Search obits by query
+        /// </summary>
+        /// <remarks>
+        /// Implements a fulltext search for obits by \&quot;searchTerm\&quot;.
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Query argument that used for a fulltext search (optional)</param>
+        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
+        /// <returns>Obits</returns>
+        Obits Search (string q = default(string), int? offset = default(int?));
+
+        /// <summary>
+        /// Search obits by query
+        /// </summary>
+        /// <remarks>
+        /// Implements a fulltext search for obits by \&quot;searchTerm\&quot;.
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Query argument that used for a fulltext search (optional)</param>
+        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
+        /// <returns>ApiResponse of Obits</returns>
+        ApiResponse<Obits> SearchWithHttpInfo (string q = default(string), int? offset = default(int?));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Generates the obit checksum.
         /// </summary>
         /// <remarks>
-        /// Creates a new obit.
+        /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of InlineResponse201</returns>
-        System.Threading.Tasks.Task<InlineResponse201> CreateObitAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of Checksum</returns>
+        System.Threading.Tasks.Task<Checksum> ChecksumAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Generates the obit checksum.
         /// </summary>
         /// <remarks>
-        /// Creates a new obit.
+        /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateObitWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (Checksum)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Checksum>> ChecksumWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// 
+        /// Generate Obit ID
         /// </summary>
         /// <remarks>
-        /// Changes Obit status to DISABLED_BY_OWNER
+        /// Returns the Obit ID for a given device_id, part_number and serial_number input.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="requestObitId"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RemoveObitAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ObitId</returns>
+        System.Threading.Tasks.Task<ObitId> GenerateIdAsync (RequestObitId requestObitId = default(RequestObitId), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Generate Obit ID
         /// </summary>
         /// <remarks>
-        /// Changes Obit status to DISABLED_BY_OWNER
+        /// Returns the Obit ID for a given device_id, part_number and serial_number input.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="requestObitId"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveObitWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (ObitId)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObitId>> GenerateIdWithHttpInfoAsync (RequestObitId requestObitId = default(RequestObitId), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// 
+        /// Get Obit by DID or USN
         /// </summary>
         /// <remarks>
-        /// Search obits by given filters.
-        /// </remarks>
-        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serialNumberHash">Query argument that filters by serial number hash (optional)</param>
-        /// <param name="obitStatus">Query argument that filters by obit status (optional)</param>
-        /// <param name="manufacturer">Query argument that filters by manufacturer (optional)</param>
-        /// <param name="partNumber">Query argument that filters by part number (optional)</param>
-        /// <param name="usn">Universal serial number (optional)</param>
-        /// <param name="ownerDid">OBADA owner DID (optional)</param>
-        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of records to return. (optional, default to 0)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> SearchObitsAsync (string serialNumberHash = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string usn = default(string), string ownerDid = default(string), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Search obits by given filters.
-        /// </remarks>
-        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serialNumberHash">Query argument that filters by serial number hash (optional)</param>
-        /// <param name="obitStatus">Query argument that filters by obit status (optional)</param>
-        /// <param name="manufacturer">Query argument that filters by manufacturer (optional)</param>
-        /// <param name="partNumber">Query argument that filters by part number (optional)</param>
-        /// <param name="usn">Universal serial number (optional)</param>
-        /// <param name="ownerDid">OBADA owner DID (optional)</param>
-        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of records to return. (optional, default to 0)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchObitsWithHttpInfoAsync (string serialNumberHash = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string usn = default(string), string ownerDid = default(string), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Shows the information about single Obit by given ObitDID
+        /// Get a single Obit by given ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Obit</returns>
-        System.Threading.Tasks.Task<Obit> ShowObitAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<Obit> GetAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Get Obit by DID or USN
         /// </summary>
         /// <remarks>
-        /// Shows the information about single Obit by given ObitDID
+        /// Get a single Obit by given ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Obit)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Obit>> ShowObitWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Obit>> GetWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// 
+        /// Get Obit history by DID or USN
         /// </summary>
         /// <remarks>
-        /// Shows the history of changes by given Obit with ObitDID
+        /// Shows the history of changes by given Obit with ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> ShowObitHistoryAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> HistoryAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Get Obit history by DID or USN
         /// </summary>
         /// <remarks>
-        /// Shows the history of changes by given Obit with ObitDID
+        /// Shows the history of changes by given Obit with ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> ShowObitHistoryWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> HistoryWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// 
+        /// Save Obit
         /// </summary>
         /// <remarks>
-        /// Updates Obit by given ObitDID with payload
+        /// Returns Obit with updated checksum if data was changed.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateObitAsync (string obitDid, Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task SaveAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Save Obit
         /// </summary>
         /// <remarks>
-        /// Updates Obit by given ObitDID with payload
+        /// Returns Obit with updated checksum if data was changed.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateObitWithHttpInfoAsync (string obitDid, Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SaveWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Search obits by query
+        /// </summary>
+        /// <remarks>
+        /// Implements a fulltext search for obits by \&quot;searchTerm\&quot;.
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Query argument that used for a fulltext search (optional)</param>
+        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of Obits</returns>
+        System.Threading.Tasks.Task<Obits> SearchAsync (string q = default(string), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Search obits by query
+        /// </summary>
+        /// <remarks>
+        /// Implements a fulltext search for obits by \&quot;searchTerm\&quot;.
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Query argument that used for a fulltext search (optional)</param>
+        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (Obits)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Obits>> SearchWithHttpInfoAsync (string q = default(string), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -435,27 +407,27 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        ///  Creates a new obit.
+        /// Generates the obit checksum. 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
-        /// <returns>InlineResponse201</returns>
-        public InlineResponse201 CreateObit (Obit obit = default(Obit))
+        /// <returns>Checksum</returns>
+        public Checksum Checksum (Obit obit = default(Obit))
         {
-             ApiResponse<InlineResponse201> localVarResponse = CreateObitWithHttpInfo(obit);
+             ApiResponse<Checksum> localVarResponse = ChecksumWithHttpInfo(obit);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Creates a new obit.
+        /// Generates the obit checksum. 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        public ApiResponse<InlineResponse201> CreateObitWithHttpInfo (Obit obit = default(Obit))
+        /// <returns>ApiResponse of Checksum</returns>
+        public ApiResponse<Checksum> ChecksumWithHttpInfo (Obit obit = default(Obit))
         {
 
-            var localVarPath = "/obits";
+            var localVarPath = "/obit/checksum";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -496,40 +468,40 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateObit", localVarResponse);
+                Exception exception = ExceptionFactory("Checksum", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<Checksum>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse201) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201)));
+                (Checksum) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Checksum)));
         }
 
         /// <summary>
-        ///  Creates a new obit.
+        /// Generates the obit checksum. 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of InlineResponse201</returns>
-        public async System.Threading.Tasks.Task<InlineResponse201> CreateObitAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of Checksum</returns>
+        public async System.Threading.Tasks.Task<Checksum> ChecksumAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<InlineResponse201> localVarResponse = await CreateObitWithHttpInfoAsync(obit, cancellationToken);
+             ApiResponse<Checksum> localVarResponse = await ChecksumWithHttpInfoAsync(obit, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Creates a new obit.
+        /// Generates the obit checksum. 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateObitWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (Checksum)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Checksum>> ChecksumWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
         {
 
-            var localVarPath = "/obits";
+            var localVarPath = "/obit/checksum";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -570,39 +542,37 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateObit", localVarResponse);
+                Exception exception = ExceptionFactory("Checksum", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<Checksum>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse201) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201)));
+                (Checksum) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Checksum)));
         }
 
         /// <summary>
-        ///  Changes Obit status to DISABLED_BY_OWNER
+        /// Generate Obit ID Returns the Obit ID for a given device_id, part_number and serial_number input.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
-        /// <returns></returns>
-        public void RemoveObit (string obitDid)
+        /// <param name="requestObitId"> (optional)</param>
+        /// <returns>ObitId</returns>
+        public ObitId GenerateId (RequestObitId requestObitId = default(RequestObitId))
         {
-             RemoveObitWithHttpInfo(obitDid);
+             ApiResponse<ObitId> localVarResponse = GenerateIdWithHttpInfo(requestObitId);
+             return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Changes Obit status to DISABLED_BY_OWNER
+        /// Generate Obit ID Returns the Obit ID for a given device_id, part_number and serial_number input.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> RemoveObitWithHttpInfo (string obitDid)
+        /// <param name="requestObitId"> (optional)</param>
+        /// <returns>ApiResponse of ObitId</returns>
+        public ApiResponse<ObitId> GenerateIdWithHttpInfo (RequestObitId requestObitId = default(RequestObitId))
         {
-            // verify the required parameter 'obitDid' is set
-            if (obitDid == null)
-                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->RemoveObit");
 
-            var localVarPath = "/obits/{obit_did}";
+            var localVarPath = "/obit/id";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -612,6 +582,7 @@ namespace Obada.Client.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -623,54 +594,59 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (obitDid != null) localVarPathParams.Add("obit_did", this.Configuration.ApiClient.ParameterToString(obitDid)); // path parameter
+            if (requestObitId != null && requestObitId.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestObitId); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestObitId; // byte array
+            }
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("RemoveObit", localVarResponse);
+                Exception exception = ExceptionFactory("GenerateId", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ObitId>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (ObitId) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ObitId)));
         }
 
         /// <summary>
-        ///  Changes Obit status to DISABLED_BY_OWNER
+        /// Generate Obit ID Returns the Obit ID for a given device_id, part_number and serial_number input.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="requestObitId"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RemoveObitAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ObitId</returns>
+        public async System.Threading.Tasks.Task<ObitId> GenerateIdAsync (RequestObitId requestObitId = default(RequestObitId), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await RemoveObitWithHttpInfoAsync(obitDid, cancellationToken);
+             ApiResponse<ObitId> localVarResponse = await GenerateIdWithHttpInfoAsync(requestObitId, cancellationToken);
+             return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Changes Obit status to DISABLED_BY_OWNER
+        /// Generate Obit ID Returns the Obit ID for a given device_id, part_number and serial_number input.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="requestObitId"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> RemoveObitWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (ObitId)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ObitId>> GenerateIdWithHttpInfoAsync (RequestObitId requestObitId = default(RequestObitId), CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'obitDid' is set
-            if (obitDid == null)
-                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->RemoveObit");
 
-            var localVarPath = "/obits/{obit_did}";
+            var localVarPath = "/obit/id";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -680,6 +656,7 @@ namespace Obada.Client.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -691,221 +668,57 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (obitDid != null) localVarPathParams.Add("obit_did", this.Configuration.ApiClient.ParameterToString(obitDid)); // path parameter
+            if (requestObitId != null && requestObitId.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestObitId); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestObitId; // byte array
+            }
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("RemoveObit", localVarResponse);
+                Exception exception = ExceptionFactory("GenerateId", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ObitId>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (ObitId) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ObitId)));
         }
 
         /// <summary>
-        ///  Search obits by given filters.
-        /// </summary>
-        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serialNumberHash">Query argument that filters by serial number hash (optional)</param>
-        /// <param name="obitStatus">Query argument that filters by obit status (optional)</param>
-        /// <param name="manufacturer">Query argument that filters by manufacturer (optional)</param>
-        /// <param name="partNumber">Query argument that filters by part number (optional)</param>
-        /// <param name="usn">Universal serial number (optional)</param>
-        /// <param name="ownerDid">OBADA owner DID (optional)</param>
-        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of records to return. (optional, default to 0)</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 SearchObits (string serialNumberHash = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string usn = default(string), string ownerDid = default(string), int? offset = default(int?), int? limit = default(int?))
-        {
-             ApiResponse<InlineResponse2005> localVarResponse = SearchObitsWithHttpInfo(serialNumberHash, obitStatus, manufacturer, partNumber, usn, ownerDid, offset, limit);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Search obits by given filters.
-        /// </summary>
-        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serialNumberHash">Query argument that filters by serial number hash (optional)</param>
-        /// <param name="obitStatus">Query argument that filters by obit status (optional)</param>
-        /// <param name="manufacturer">Query argument that filters by manufacturer (optional)</param>
-        /// <param name="partNumber">Query argument that filters by part number (optional)</param>
-        /// <param name="usn">Universal serial number (optional)</param>
-        /// <param name="ownerDid">OBADA owner DID (optional)</param>
-        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of records to return. (optional, default to 0)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse<InlineResponse2005> SearchObitsWithHttpInfo (string serialNumberHash = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string usn = default(string), string ownerDid = default(string), int? offset = default(int?), int? limit = default(int?))
-        {
-
-            var localVarPath = "/obits";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (serialNumberHash != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "serial_number_hash", serialNumberHash)); // query parameter
-            if (obitStatus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "obit_status", obitStatus)); // query parameter
-            if (manufacturer != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "manufacturer", manufacturer)); // query parameter
-            if (partNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "part_number", partNumber)); // query parameter
-            if (usn != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "usn", usn)); // query parameter
-            if (ownerDid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "owner_did", ownerDid)); // query parameter
-            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SearchObits", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
-        }
-
-        /// <summary>
-        ///  Search obits by given filters.
-        /// </summary>
-        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serialNumberHash">Query argument that filters by serial number hash (optional)</param>
-        /// <param name="obitStatus">Query argument that filters by obit status (optional)</param>
-        /// <param name="manufacturer">Query argument that filters by manufacturer (optional)</param>
-        /// <param name="partNumber">Query argument that filters by part number (optional)</param>
-        /// <param name="usn">Universal serial number (optional)</param>
-        /// <param name="ownerDid">OBADA owner DID (optional)</param>
-        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of records to return. (optional, default to 0)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> SearchObitsAsync (string serialNumberHash = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string usn = default(string), string ownerDid = default(string), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
-        {
-             ApiResponse<InlineResponse2005> localVarResponse = await SearchObitsWithHttpInfoAsync(serialNumberHash, obitStatus, manufacturer, partNumber, usn, ownerDid, offset, limit, cancellationToken);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  Search obits by given filters.
-        /// </summary>
-        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serialNumberHash">Query argument that filters by serial number hash (optional)</param>
-        /// <param name="obitStatus">Query argument that filters by obit status (optional)</param>
-        /// <param name="manufacturer">Query argument that filters by manufacturer (optional)</param>
-        /// <param name="partNumber">Query argument that filters by part number (optional)</param>
-        /// <param name="usn">Universal serial number (optional)</param>
-        /// <param name="ownerDid">OBADA owner DID (optional)</param>
-        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of records to return. (optional, default to 0)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchObitsWithHttpInfoAsync (string serialNumberHash = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string usn = default(string), string ownerDid = default(string), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var localVarPath = "/obits";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (serialNumberHash != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "serial_number_hash", serialNumberHash)); // query parameter
-            if (obitStatus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "obit_status", obitStatus)); // query parameter
-            if (manufacturer != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "manufacturer", manufacturer)); // query parameter
-            if (partNumber != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "part_number", partNumber)); // query parameter
-            if (usn != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "usn", usn)); // query parameter
-            if (ownerDid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "owner_did", ownerDid)); // query parameter
-            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SearchObits", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
-        }
-
-        /// <summary>
-        ///  Shows the information about single Obit by given ObitDID
+        /// Get Obit by DID or USN Get a single Obit by given ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <returns>Obit</returns>
-        public Obit ShowObit (string obitDid)
+        public Obit Get (string obitDid)
         {
-             ApiResponse<Obit> localVarResponse = ShowObitWithHttpInfo(obitDid);
+             ApiResponse<Obit> localVarResponse = GetWithHttpInfo(obitDid);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Shows the information about single Obit by given ObitDID
+        /// Get Obit by DID or USN Get a single Obit by given ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <returns>ApiResponse of Obit</returns>
-        public ApiResponse<Obit> ShowObitWithHttpInfo (string obitDid)
+        public ApiResponse<Obit> GetWithHttpInfo (string obitDid)
         {
             // verify the required parameter 'obitDid' is set
             if (obitDid == null)
-                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->ShowObit");
+                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->Get");
 
             var localVarPath = "/obits/{obit_did}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -940,7 +753,7 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ShowObit", localVarResponse);
+                Exception exception = ExceptionFactory("Get", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -950,31 +763,31 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        ///  Shows the information about single Obit by given ObitDID
+        /// Get Obit by DID or USN Get a single Obit by given ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Obit</returns>
-        public async System.Threading.Tasks.Task<Obit> ShowObitAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<Obit> GetAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Obit> localVarResponse = await ShowObitWithHttpInfoAsync(obitDid, cancellationToken);
+             ApiResponse<Obit> localVarResponse = await GetWithHttpInfoAsync(obitDid, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Shows the information about single Obit by given ObitDID
+        /// Get Obit by DID or USN Get a single Obit by given ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Obit)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Obit>> ShowObitWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Obit>> GetWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'obitDid' is set
             if (obitDid == null)
-                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->ShowObit");
+                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->Get");
 
             var localVarPath = "/obits/{obit_did}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1009,7 +822,7 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ShowObit", localVarResponse);
+                Exception exception = ExceptionFactory("Get", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1019,28 +832,28 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        ///  Shows the history of changes by given Obit with ObitDID
+        /// Get Obit history by DID or USN Shows the history of changes by given Obit with ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
-        /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 ShowObitHistory (string obitDid)
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 History (string obitDid)
         {
-             ApiResponse<InlineResponse2006> localVarResponse = ShowObitHistoryWithHttpInfo(obitDid);
+             ApiResponse<InlineResponse200> localVarResponse = HistoryWithHttpInfo(obitDid);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Shows the history of changes by given Obit with ObitDID
+        /// Get Obit history by DID or USN Shows the history of changes by given Obit with ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        public ApiResponse<InlineResponse2006> ShowObitHistoryWithHttpInfo (string obitDid)
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse<InlineResponse200> HistoryWithHttpInfo (string obitDid)
         {
             // verify the required parameter 'obitDid' is set
             if (obitDid == null)
-                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->ShowObitHistory");
+                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->History");
 
             var localVarPath = "/obits/{obit_did}/history";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1075,41 +888,41 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ShowObitHistory", localVarResponse);
+                Exception exception = ExceptionFactory("History", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2006) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006)));
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
         /// <summary>
-        ///  Shows the history of changes by given Obit with ObitDID
+        /// Get Obit history by DID or USN Shows the history of changes by given Obit with ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> ShowObitHistoryAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200> HistoryAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<InlineResponse2006> localVarResponse = await ShowObitHistoryWithHttpInfoAsync(obitDid, cancellationToken);
+             ApiResponse<InlineResponse200> localVarResponse = await HistoryWithHttpInfoAsync(obitDid, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Shows the history of changes by given Obit with ObitDID
+        /// Get Obit history by DID or USN Shows the history of changes by given Obit with ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> ShowObitHistoryWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> HistoryWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'obitDid' is set
             if (obitDid == null)
-                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->ShowObitHistory");
+                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->History");
 
             var localVarPath = "/obits/{obit_did}/history";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1144,41 +957,36 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ShowObitHistory", localVarResponse);
+                Exception exception = ExceptionFactory("History", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2006) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006)));
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
         /// <summary>
-        ///  Updates Obit by given ObitDID with payload
+        /// Save Obit Returns Obit with updated checksum if data was changed.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="obit"> (optional)</param>
         /// <returns></returns>
-        public void UpdateObit (string obitDid, Obit obit = default(Obit))
+        public void Save (Obit obit = default(Obit))
         {
-             UpdateObitWithHttpInfo(obitDid, obit);
+             SaveWithHttpInfo(obit);
         }
 
         /// <summary>
-        ///  Updates Obit by given ObitDID with payload
+        /// Save Obit Returns Obit with updated checksum if data was changed.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="obit"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateObitWithHttpInfo (string obitDid, Obit obit = default(Obit))
+        public ApiResponse<Object> SaveWithHttpInfo (Obit obit = default(Obit))
         {
-            // verify the required parameter 'obitDid' is set
-            if (obitDid == null)
-                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->UpdateObit");
 
-            var localVarPath = "/obits/{obit_did}";
+            var localVarPath = "/obits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1200,7 +1008,6 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (obitDid != null) localVarPathParams.Add("obit_did", this.Configuration.ApiClient.ParameterToString(obitDid)); // path parameter
             if (obit != null && obit.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(obit); // http body (model) parameter
@@ -1213,14 +1020,14 @@ namespace Obada.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateObit", localVarResponse);
+                Exception exception = ExceptionFactory("Save", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1230,34 +1037,29 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        ///  Updates Obit by given ObitDID with payload
+        /// Save Obit Returns Obit with updated checksum if data was changed.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateObitAsync (string obitDid, Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task SaveAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await UpdateObitWithHttpInfoAsync(obitDid, obit, cancellationToken);
+             await SaveWithHttpInfoAsync(obit, cancellationToken);
 
         }
 
         /// <summary>
-        ///  Updates Obit by given ObitDID with payload
+        /// Save Obit Returns Obit with updated checksum if data was changed.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateObitWithHttpInfoAsync (string obitDid, Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SaveWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'obitDid' is set
-            if (obitDid == null)
-                throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->UpdateObit");
 
-            var localVarPath = "/obits/{obit_did}";
+            var localVarPath = "/obits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1279,7 +1081,6 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (obitDid != null) localVarPathParams.Add("obit_did", this.Configuration.ApiClient.ParameterToString(obitDid)); // path parameter
             if (obit != null && obit.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(obit); // http body (model) parameter
@@ -1292,20 +1093,155 @@ namespace Obada.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateObit", localVarResponse);
+                Exception exception = ExceptionFactory("Save", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Search obits by query Implements a fulltext search for obits by \&quot;searchTerm\&quot;.
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Query argument that used for a fulltext search (optional)</param>
+        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
+        /// <returns>Obits</returns>
+        public Obits Search (string q = default(string), int? offset = default(int?))
+        {
+             ApiResponse<Obits> localVarResponse = SearchWithHttpInfo(q, offset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search obits by query Implements a fulltext search for obits by \&quot;searchTerm\&quot;.
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Query argument that used for a fulltext search (optional)</param>
+        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
+        /// <returns>ApiResponse of Obits</returns>
+        public ApiResponse<Obits> SearchWithHttpInfo (string q = default(string), int? offset = default(int?))
+        {
+
+            var localVarPath = "/obits";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Search", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Obits>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Obits) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Obits)));
+        }
+
+        /// <summary>
+        /// Search obits by query Implements a fulltext search for obits by \&quot;searchTerm\&quot;.
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Query argument that used for a fulltext search (optional)</param>
+        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of Obits</returns>
+        public async System.Threading.Tasks.Task<Obits> SearchAsync (string q = default(string), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<Obits> localVarResponse = await SearchWithHttpInfoAsync(q, offset, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search obits by query Implements a fulltext search for obits by \&quot;searchTerm\&quot;.
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Query argument that used for a fulltext search (optional)</param>
+        /// <param name="offset">Number of records to skip for pagination. (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (Obits)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Obits>> SearchWithHttpInfoAsync (string q = default(string), int? offset = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/obits";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (q != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "q", q)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Search", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Obits>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Obits) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Obits)));
         }
 
     }
