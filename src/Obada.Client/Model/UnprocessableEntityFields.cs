@@ -34,8 +34,8 @@ namespace Obada.Client.Model
         /// Initializes a new instance of the <see cref="UnprocessableEntityFields" /> class.
         /// </summary>
         /// <param name="field">field (default to &quot;serial_number&quot;).</param>
-        /// <param name="error">error (default to &quot;serial_number is a required field&quot;).</param>
-        public UnprocessableEntityFields(string field = "serial_number", string error = "serial_number is a required field")
+        /// <param name="error">error (default to &quot;serial_number is required field&quot;).</param>
+        public UnprocessableEntityFields(string field = "serial_number", string error = "serial_number is required field")
         {
             // use default value if no "field" provided
             if (field == null)
@@ -49,7 +49,7 @@ namespace Obada.Client.Model
             // use default value if no "error" provided
             if (error == null)
             {
-                this.Error = "serial_number is a required field";
+                this.Error = "serial_number is required field";
             }
             else
             {

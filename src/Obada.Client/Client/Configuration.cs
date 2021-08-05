@@ -115,7 +115,7 @@ namespace Obada.Client.Client
         public Configuration()
         {
             UserAgent = "OpenAPI-Generator/1.0.0/csharp";
-            BasePath = "https://dev.node.obada.io";
+            BasePath = "http://obs.node.obada.io";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -131,7 +131,7 @@ namespace Obada.Client.Client
             IDictionary<string, string> defaultHeader,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://dev.node.obada.io") : this()
+            string basePath = "http://obs.node.obada.io") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");

@@ -78,13 +78,13 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "https://dev.node.obada.io";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obit = new Obit(); // Obit |  (optional) 
 
             try
             {
-                // Generates the obit checksum.
+                // Generates obit checksum.
                 Checksum result = apiInstance.Checksum(obit);
                 Debug.WriteLine(result);
             }
@@ -102,11 +102,11 @@ namespace Example
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://dev.node.obada.io*
+All URIs are relative to *http://obs.node.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ObitApi* | [**Checksum**](docs/ObitApi.md#checksum) | **POST** /obit/checksum | Generates the obit checksum.
+*ObitApi* | [**Checksum**](docs/ObitApi.md#checksum) | **POST** /obit/checksum | Generates obit checksum.
 *ObitApi* | [**GenerateId**](docs/ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
 *ObitApi* | [**Get**](docs/ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 *ObitApi* | [**History**](docs/ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
