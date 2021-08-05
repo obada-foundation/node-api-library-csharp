@@ -26,7 +26,7 @@ namespace Obada.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Generates the obit checksum.
+        /// Generates obit checksum.
         /// </summary>
         /// <remarks>
         /// 
@@ -37,7 +37,7 @@ namespace Obada.Client.Api
         Checksum Checksum (Obit obit = default(Obit));
 
         /// <summary>
-        /// Generates the obit checksum.
+        /// Generates obit checksum.
         /// </summary>
         /// <remarks>
         /// 
@@ -95,7 +95,7 @@ namespace Obada.Client.Api
         /// Shows the history of changes by given Obit with ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <returns>InlineResponse200</returns>
         InlineResponse200 History (string obitDid);
 
@@ -106,7 +106,7 @@ namespace Obada.Client.Api
         /// Shows the history of changes by given Obit with ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
         ApiResponse<InlineResponse200> HistoryWithHttpInfo (string obitDid);
         /// <summary>
@@ -156,7 +156,7 @@ namespace Obada.Client.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Generates the obit checksum.
+        /// Generates obit checksum.
         /// </summary>
         /// <remarks>
         /// 
@@ -168,7 +168,7 @@ namespace Obada.Client.Api
         System.Threading.Tasks.Task<Checksum> ChecksumAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Generates the obit checksum.
+        /// Generates obit checksum.
         /// </summary>
         /// <remarks>
         /// 
@@ -231,7 +231,7 @@ namespace Obada.Client.Api
         /// Shows the history of changes by given Obit with ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of InlineResponse200</returns>
         System.Threading.Tasks.Task<InlineResponse200> HistoryAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
@@ -243,7 +243,7 @@ namespace Obada.Client.Api
         /// Shows the history of changes by given Obit with ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> HistoryWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
@@ -407,7 +407,7 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generates the obit checksum. 
+        /// Generates obit checksum. 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
@@ -419,7 +419,7 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generates the obit checksum. 
+        /// Generates obit checksum. 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
@@ -478,7 +478,7 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generates the obit checksum. 
+        /// Generates obit checksum. 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
@@ -492,7 +492,7 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generates the obit checksum. 
+        /// Generates obit checksum. 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
@@ -835,7 +835,7 @@ namespace Obada.Client.Api
         /// Get Obit history by DID or USN Shows the history of changes by given Obit with ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 History (string obitDid)
         {
@@ -847,7 +847,7 @@ namespace Obada.Client.Api
         /// Get Obit history by DID or USN Shows the history of changes by given Obit with ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
         public ApiResponse<InlineResponse200> HistoryWithHttpInfo (string obitDid)
         {
@@ -901,7 +901,7 @@ namespace Obada.Client.Api
         /// Get Obit history by DID or USN Shows the history of changes by given Obit with ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of InlineResponse200</returns>
         public async System.Threading.Tasks.Task<InlineResponse200> HistoryAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
@@ -915,7 +915,7 @@ namespace Obada.Client.Api
         /// Get Obit history by DID or USN Shows the history of changes by given Obit with ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> HistoryWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))

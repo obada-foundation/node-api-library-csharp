@@ -1,10 +1,10 @@
 # Obada.Client.Api.ObitApi
 
-All URIs are relative to *https://dev.node.obada.io*
+All URIs are relative to *http://obs.node.obada.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Checksum**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates the obit checksum.
+[**Checksum**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates obit checksum.
 [**GenerateId**](ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
 [**Get**](ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 [**History**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > Checksum Checksum (Obit obit = null)
 
-Generates the obit checksum.
+Generates obit checksum.
 
 ### Example
 
@@ -34,13 +34,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://dev.node.obada.io";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obit = new Obit(); // Obit |  (optional) 
 
             try
             {
-                // Generates the obit checksum.
+                // Generates obit checksum.
                 Checksum result = apiInstance.Checksum(obit);
                 Debug.WriteLine(result);
             }
@@ -112,7 +112,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://dev.node.obada.io";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var requestObitId = new RequestObitId(); // RequestObitId |  (optional) 
 
@@ -190,7 +190,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://dev.node.obada.io";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID argument
 
@@ -268,9 +268,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://dev.node.obada.io";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
-            var obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID argument
+            var obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID or USN argument
 
             try
             {
@@ -294,7 +294,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obitDid** | **string**| The given ObitDID argument | 
+ **obitDid** | **string**| The given ObitDID or USN argument | 
 
 ### Return type
 
@@ -345,7 +345,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://dev.node.obada.io";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obit = new Obit(); // Obit |  (optional) 
 
@@ -422,7 +422,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://dev.node.obada.io";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var q = fe403a1afe16203f4b8bb3a0e72d3e17567897bc15293e4a87b663e441030aea;  // string | Query argument that used for a fulltext search (optional) 
             var offset = 56;  // int? | Number of records to skip for pagination. (optional)  (default to 0)
@@ -469,7 +469,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of obits responded by given arguments. |  -  |
+| **200** | List of obits with pagination responded by given arguments. |  -  |
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#)

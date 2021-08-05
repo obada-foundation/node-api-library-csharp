@@ -54,12 +54,12 @@ namespace Obada.Client.Client
         public ApiClient()
         {
             Configuration = Obada.Client.Client.Configuration.Default;
-            RestClient = new RestClient("https://dev.node.obada.io");
+            RestClient = new RestClient("http://obs.node.obada.io");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://dev.node.obada.io).
+        /// with default base path (http://obs.node.obada.io).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -74,7 +74,7 @@ namespace Obada.Client.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://dev.node.obada.io")
+        public ApiClient(String basePath = "http://obs.node.obada.io")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
