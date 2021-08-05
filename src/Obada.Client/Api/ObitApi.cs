@@ -47,26 +47,26 @@ namespace Obada.Client.Api
         /// <returns>ApiResponse of Checksum</returns>
         ApiResponse<Checksum> ChecksumWithHttpInfo (Obit obit = default(Obit));
         /// <summary>
-        /// Generate Obit ID
+        /// Generate Obit DID
         /// </summary>
         /// <remarks>
-        /// Returns the Obit ID for a given device_id, part_number and serial_number input.
+        /// Returns the Obit DID for a given device_id, part_number and serial_number input.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestObitId"> (optional)</param>
-        /// <returns>ObitId</returns>
-        ObitId GenerateId (RequestObitId requestObitId = default(RequestObitId));
+        /// <param name="requestObitDID"> (optional)</param>
+        /// <returns>ObitDID</returns>
+        ObitDID GenerateDID (RequestObitDID requestObitDID = default(RequestObitDID));
 
         /// <summary>
-        /// Generate Obit ID
+        /// Generate Obit DID
         /// </summary>
         /// <remarks>
-        /// Returns the Obit ID for a given device_id, part_number and serial_number input.
+        /// Returns the Obit DID for a given device_id, part_number and serial_number input.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestObitId"> (optional)</param>
-        /// <returns>ApiResponse of ObitId</returns>
-        ApiResponse<ObitId> GenerateIdWithHttpInfo (RequestObitId requestObitId = default(RequestObitId));
+        /// <param name="requestObitDID"> (optional)</param>
+        /// <returns>ApiResponse of ObitDID</returns>
+        ApiResponse<ObitDID> GenerateDIDWithHttpInfo (RequestObitDID requestObitDID = default(RequestObitDID));
         /// <summary>
         /// Get Obit by DID or USN
         /// </summary>
@@ -74,7 +74,7 @@ namespace Obada.Client.Api
         /// Get a single Obit by given ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <returns>Obit</returns>
         Obit Get (string obitDid);
 
@@ -85,7 +85,7 @@ namespace Obada.Client.Api
         /// Get a single Obit by given ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <returns>ApiResponse of Obit</returns>
         ApiResponse<Obit> GetWithHttpInfo (string obitDid);
         /// <summary>
@@ -179,28 +179,28 @@ namespace Obada.Client.Api
         /// <returns>Task of ApiResponse (Checksum)</returns>
         System.Threading.Tasks.Task<ApiResponse<Checksum>> ChecksumWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Generate Obit ID
+        /// Generate Obit DID
         /// </summary>
         /// <remarks>
-        /// Returns the Obit ID for a given device_id, part_number and serial_number input.
+        /// Returns the Obit DID for a given device_id, part_number and serial_number input.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestObitId"> (optional)</param>
+        /// <param name="requestObitDID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ObitId</returns>
-        System.Threading.Tasks.Task<ObitId> GenerateIdAsync (RequestObitId requestObitId = default(RequestObitId), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ObitDID</returns>
+        System.Threading.Tasks.Task<ObitDID> GenerateDIDAsync (RequestObitDID requestObitDID = default(RequestObitDID), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Generate Obit ID
+        /// Generate Obit DID
         /// </summary>
         /// <remarks>
-        /// Returns the Obit ID for a given device_id, part_number and serial_number input.
+        /// Returns the Obit DID for a given device_id, part_number and serial_number input.
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestObitId"> (optional)</param>
+        /// <param name="requestObitDID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (ObitId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObitId>> GenerateIdWithHttpInfoAsync (RequestObitId requestObitId = default(RequestObitId), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (ObitDID)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObitDID>> GenerateDIDWithHttpInfoAsync (RequestObitDID requestObitDID = default(RequestObitDID), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Obit by DID or USN
         /// </summary>
@@ -208,7 +208,7 @@ namespace Obada.Client.Api
         /// Get a single Obit by given ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Obit</returns>
         System.Threading.Tasks.Task<Obit> GetAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
@@ -220,7 +220,7 @@ namespace Obada.Client.Api
         /// Get a single Obit by given ObitDID or USN
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Obit)</returns>
         System.Threading.Tasks.Task<ApiResponse<Obit>> GetWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken));
@@ -552,27 +552,27 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generate Obit ID Returns the Obit ID for a given device_id, part_number and serial_number input.
+        /// Generate Obit DID Returns the Obit DID for a given device_id, part_number and serial_number input.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestObitId"> (optional)</param>
-        /// <returns>ObitId</returns>
-        public ObitId GenerateId (RequestObitId requestObitId = default(RequestObitId))
+        /// <param name="requestObitDID"> (optional)</param>
+        /// <returns>ObitDID</returns>
+        public ObitDID GenerateDID (RequestObitDID requestObitDID = default(RequestObitDID))
         {
-             ApiResponse<ObitId> localVarResponse = GenerateIdWithHttpInfo(requestObitId);
+             ApiResponse<ObitDID> localVarResponse = GenerateDIDWithHttpInfo(requestObitDID);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Generate Obit ID Returns the Obit ID for a given device_id, part_number and serial_number input.
+        /// Generate Obit DID Returns the Obit DID for a given device_id, part_number and serial_number input.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestObitId"> (optional)</param>
-        /// <returns>ApiResponse of ObitId</returns>
-        public ApiResponse<ObitId> GenerateIdWithHttpInfo (RequestObitId requestObitId = default(RequestObitId))
+        /// <param name="requestObitDID"> (optional)</param>
+        /// <returns>ApiResponse of ObitDID</returns>
+        public ApiResponse<ObitDID> GenerateDIDWithHttpInfo (RequestObitDID requestObitDID = default(RequestObitDID))
         {
 
-            var localVarPath = "/obit/id";
+            var localVarPath = "/obit/did";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -594,13 +594,13 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (requestObitId != null && requestObitId.GetType() != typeof(byte[]))
+            if (requestObitDID != null && requestObitDID.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(requestObitId); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestObitDID); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = requestObitId; // byte array
+                localVarPostBody = requestObitDID; // byte array
             }
 
 
@@ -613,40 +613,40 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenerateId", localVarResponse);
+                Exception exception = ExceptionFactory("GenerateDID", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ObitId>(localVarStatusCode,
+            return new ApiResponse<ObitDID>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ObitId) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ObitId)));
+                (ObitDID) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ObitDID)));
         }
 
         /// <summary>
-        /// Generate Obit ID Returns the Obit ID for a given device_id, part_number and serial_number input.
+        /// Generate Obit DID Returns the Obit DID for a given device_id, part_number and serial_number input.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestObitId"> (optional)</param>
+        /// <param name="requestObitDID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ObitId</returns>
-        public async System.Threading.Tasks.Task<ObitId> GenerateIdAsync (RequestObitId requestObitId = default(RequestObitId), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ObitDID</returns>
+        public async System.Threading.Tasks.Task<ObitDID> GenerateDIDAsync (RequestObitDID requestObitDID = default(RequestObitDID), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<ObitId> localVarResponse = await GenerateIdWithHttpInfoAsync(requestObitId, cancellationToken);
+             ApiResponse<ObitDID> localVarResponse = await GenerateDIDWithHttpInfoAsync(requestObitDID, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Generate Obit ID Returns the Obit ID for a given device_id, part_number and serial_number input.
+        /// Generate Obit DID Returns the Obit DID for a given device_id, part_number and serial_number input.
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestObitId"> (optional)</param>
+        /// <param name="requestObitDID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (ObitId)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ObitId>> GenerateIdWithHttpInfoAsync (RequestObitId requestObitId = default(RequestObitId), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (ObitDID)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ObitDID>> GenerateDIDWithHttpInfoAsync (RequestObitDID requestObitDID = default(RequestObitDID), CancellationToken cancellationToken = default(CancellationToken))
         {
 
-            var localVarPath = "/obit/id";
+            var localVarPath = "/obit/did";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -668,13 +668,13 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (requestObitId != null && requestObitId.GetType() != typeof(byte[]))
+            if (requestObitDID != null && requestObitDID.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(requestObitId); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestObitDID); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = requestObitId; // byte array
+                localVarPostBody = requestObitDID; // byte array
             }
 
 
@@ -687,20 +687,20 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GenerateId", localVarResponse);
+                Exception exception = ExceptionFactory("GenerateDID", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ObitId>(localVarStatusCode,
+            return new ApiResponse<ObitDID>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ObitId) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ObitId)));
+                (ObitDID) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ObitDID)));
         }
 
         /// <summary>
         /// Get Obit by DID or USN Get a single Obit by given ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <returns>Obit</returns>
         public Obit Get (string obitDid)
         {
@@ -712,7 +712,7 @@ namespace Obada.Client.Api
         /// Get Obit by DID or USN Get a single Obit by given ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <returns>ApiResponse of Obit</returns>
         public ApiResponse<Obit> GetWithHttpInfo (string obitDid)
         {
@@ -766,7 +766,7 @@ namespace Obada.Client.Api
         /// Get Obit by DID or USN Get a single Obit by given ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Obit</returns>
         public async System.Threading.Tasks.Task<Obit> GetAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))
@@ -780,7 +780,7 @@ namespace Obada.Client.Api
         /// Get Obit by DID or USN Get a single Obit by given ObitDID or USN
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="obitDid">The given ObitDID argument</param>
+        /// <param name="obitDid">The given ObitDID or USN argument</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Obit)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Obit>> GetWithHttpInfoAsync (string obitDid, CancellationToken cancellationToken = default(CancellationToken))

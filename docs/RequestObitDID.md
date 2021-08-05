@@ -1,5 +1,5 @@
 
-# Obada.Client.Model.RequestObitId
+# Obada.Client.Model.RequestObitDID
 
 ## Properties
 

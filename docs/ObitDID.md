@@ -1,11 +1,10 @@
 
-# Obada.Client.Model.ObitId
+# Obada.Client.Model.ObitDID
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [optional] 
 **Did** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

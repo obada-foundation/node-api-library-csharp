@@ -76,15 +76,15 @@ namespace Obada.Client.Test
         }
         
         /// <summary>
-        /// Test GenerateId
+        /// Test GenerateDID
         /// </summary>
         [Test]
-        public void GenerateIdTest()
+        public void GenerateDIDTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //RequestObitId requestObitId = null;
-            //var response = instance.GenerateId(requestObitId);
-            //Assert.IsInstanceOf(typeof(ObitId), response, "response is ObitId");
+            //RequestObitDID requestObitDID = null;
+            //var response = instance.GenerateDID(requestObitDID);
+            //Assert.IsInstanceOf(typeof(ObitDID), response, "response is ObitDID");
         }
         
         /// <summary>

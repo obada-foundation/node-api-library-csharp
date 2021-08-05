@@ -5,7 +5,7 @@ All URIs are relative to *http://obs.node.obada.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Checksum**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates Obit checksum
-[**GenerateId**](ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
+[**GenerateDID**](ObitApi.md#generatedid) | **POST** /obit/did | Generate Obit DID
 [**Get**](ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 [**History**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
 [**Save**](ObitApi.md#save) | **POST** /obits | Save Obit
@@ -89,13 +89,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GenerateId
+## GenerateDID
 
-> ObitId GenerateId (RequestObitId requestObitId = null)
+> ObitDID GenerateDID (RequestObitDID requestObitDID = null)
 
-Generate Obit ID
+Generate Obit DID
 
-Returns the Obit ID for a given device_id, part_number and serial_number input.
+Returns the Obit DID for a given device_id, part_number and serial_number input.
 
 ### Example
 
@@ -108,23 +108,23 @@ using Obada.Client.Model;
 
 namespace Example
 {
-    public class GenerateIdExample
+    public class GenerateDIDExample
     {
         public static void Main()
         {
             Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
-            var requestObitId = new RequestObitId(); // RequestObitId |  (optional) 
+            var requestObitDID = new RequestObitDID(); // RequestObitDID |  (optional) 
 
             try
             {
-                // Generate Obit ID
-                ObitId result = apiInstance.GenerateId(requestObitId);
+                // Generate Obit DID
+                ObitDID result = apiInstance.GenerateDID(requestObitDID);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ObitApi.GenerateId: " + e.Message );
+                Debug.Print("Exception when calling ObitApi.GenerateDID: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -138,11 +138,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestObitId** | [**RequestObitId**](RequestObitId.md)|  | [optional] 
+ **requestObitDID** | [**RequestObitDID**](RequestObitDID.md)|  | [optional] 
 
 ### Return type
 
-[**ObitId**](ObitId.md)
+[**ObitDID**](ObitDID.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Obit ID response |  -  |
+| **200** | Obit DID response |  -  |
 | **422** | The submitted entity could not be processed. |  -  |
 | **500** | Internal server error. |  -  |
 
@@ -192,7 +192,7 @@ namespace Example
         {
             Configuration.Default.BasePath = "http://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
-            var obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID argument
+            var obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID or USN argument
 
             try
             {
@@ -216,7 +216,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obitDid** | **string**| The given ObitDID argument | 
+ **obitDid** | **string**| The given ObitDID or USN argument | 
 
 ### Return type
 
