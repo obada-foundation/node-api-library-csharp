@@ -4,7 +4,7 @@ All URIs are relative to *http://obs.node.obada.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Checksum**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates obit checksum.
+[**Checksum**](ObitApi.md#checksum) | **POST** /obit/checksum | Generates Obit checksum
 [**GenerateId**](ObitApi.md#generateid) | **POST** /obit/id | Generate Obit ID
 [**Get**](ObitApi.md#get) | **GET** /obits/{obit_did} | Get Obit by DID or USN
 [**History**](ObitApi.md#history) | **GET** /obits/{obit_did}/history | Get Obit history by DID or USN
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > Checksum Checksum (Obit obit = null)
 
-Generates obit checksum.
+Generates Obit checksum
 
 ### Example
 
@@ -40,7 +40,7 @@ namespace Example
 
             try
             {
-                // Generates obit checksum.
+                // Generates Obit checksum
                 Checksum result = apiInstance.Checksum(obit);
                 Debug.WriteLine(result);
             }

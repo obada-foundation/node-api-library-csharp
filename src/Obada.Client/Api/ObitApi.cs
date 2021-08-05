@@ -26,7 +26,7 @@ namespace Obada.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Generates obit checksum.
+        /// Generates Obit checksum
         /// </summary>
         /// <remarks>
         /// 
@@ -37,7 +37,7 @@ namespace Obada.Client.Api
         Checksum Checksum (Obit obit = default(Obit));
 
         /// <summary>
-        /// Generates obit checksum.
+        /// Generates Obit checksum
         /// </summary>
         /// <remarks>
         /// 
@@ -156,7 +156,7 @@ namespace Obada.Client.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Generates obit checksum.
+        /// Generates Obit checksum
         /// </summary>
         /// <remarks>
         /// 
@@ -168,7 +168,7 @@ namespace Obada.Client.Api
         System.Threading.Tasks.Task<Checksum> ChecksumAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Generates obit checksum.
+        /// Generates Obit checksum
         /// </summary>
         /// <remarks>
         /// 
@@ -407,7 +407,7 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generates obit checksum. 
+        /// Generates Obit checksum 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
@@ -419,7 +419,7 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generates obit checksum. 
+        /// Generates Obit checksum 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
@@ -478,7 +478,7 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generates obit checksum. 
+        /// Generates Obit checksum 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
@@ -492,7 +492,7 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Generates obit checksum. 
+        /// Generates Obit checksum 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
