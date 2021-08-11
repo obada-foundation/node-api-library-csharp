@@ -25,28 +25,28 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// Request Obit Id payload
+    /// Request Obit DID payload
     /// </summary>
     [DataContract]
-    public partial class RequestObitId :  IEquatable<RequestObitId>, IValidatableObject
+    public partial class RequestObitDID :  IEquatable<RequestObitDID>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestObitId" /> class.
+        /// Initializes a new instance of the <see cref="RequestObitDID" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected RequestObitId() { }
+        protected RequestObitDID() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestObitId" /> class.
+        /// Initializes a new instance of the <see cref="RequestObitDID" /> class.
         /// </summary>
         /// <param name="manufacturer">Manufacturer (Required) (required).</param>
         /// <param name="partNumber">Part Number (Required) (required).</param>
         /// <param name="serialNumber">Serial Number (Required) (required).</param>
-        public RequestObitId(string manufacturer = default(string), string partNumber = default(string), string serialNumber = default(string))
+        public RequestObitDID(string manufacturer = default(string), string partNumber = default(string), string serialNumber = default(string))
         {
             // to ensure "manufacturer" is required (not null)
             if (manufacturer == null)
             {
-                throw new InvalidDataException("manufacturer is a required property for RequestObitId and cannot be null");
+                throw new InvalidDataException("manufacturer is a required property for RequestObitDID and cannot be null");
             }
             else
             {
@@ -56,7 +56,7 @@ namespace Obada.Client.Model
             // to ensure "partNumber" is required (not null)
             if (partNumber == null)
             {
-                throw new InvalidDataException("partNumber is a required property for RequestObitId and cannot be null");
+                throw new InvalidDataException("partNumber is a required property for RequestObitDID and cannot be null");
             }
             else
             {
@@ -66,7 +66,7 @@ namespace Obada.Client.Model
             // to ensure "serialNumber" is required (not null)
             if (serialNumber == null)
             {
-                throw new InvalidDataException("serialNumber is a required property for RequestObitId and cannot be null");
+                throw new InvalidDataException("serialNumber is a required property for RequestObitDID and cannot be null");
             }
             else
             {
@@ -103,7 +103,7 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RequestObitId {\n");
+            sb.Append("class RequestObitDID {\n");
             sb.Append("  Manufacturer: ").Append(Manufacturer).Append("\n");
             sb.Append("  PartNumber: ").Append(PartNumber).Append("\n");
             sb.Append("  SerialNumber: ").Append(SerialNumber).Append("\n");
@@ -127,15 +127,15 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RequestObitId);
+            return this.Equals(input as RequestObitDID);
         }
 
         /// <summary>
-        /// Returns true if RequestObitId instances are equal
+        /// Returns true if RequestObitDID instances are equal
         /// </summary>
-        /// <param name="input">Instance of RequestObitId to be compared</param>
+        /// <param name="input">Instance of RequestObitDID to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RequestObitId input)
+        public bool Equals(RequestObitDID input)
         {
             if (input == null)
                 return false;

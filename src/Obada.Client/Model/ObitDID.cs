@@ -25,27 +25,19 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// New Obit Id
+    /// New Obit DID
     /// </summary>
     [DataContract]
-    public partial class ObitId :  IEquatable<ObitId>, IValidatableObject
+    public partial class ObitDID :  IEquatable<ObitDID>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObitId" /> class.
+        /// Initializes a new instance of the <see cref="ObitDID" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
         /// <param name="did">did.</param>
-        public ObitId(string id = default(string), string did = default(string))
+        public ObitDID(string did = default(string))
         {
-            this.Id = id;
             this.Did = did;
         }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Did
@@ -60,8 +52,7 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ObitId {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("class ObitDID {\n");
             sb.Append("  Did: ").Append(Did).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -83,25 +74,20 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ObitId);
+            return this.Equals(input as ObitDID);
         }
 
         /// <summary>
-        /// Returns true if ObitId instances are equal
+        /// Returns true if ObitDID instances are equal
         /// </summary>
-        /// <param name="input">Instance of ObitId to be compared</param>
+        /// <param name="input">Instance of ObitDID to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ObitId input)
+        public bool Equals(ObitDID input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
                 (
                     this.Did == input.Did ||
                     (this.Did != null &&
@@ -118,8 +104,6 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Did != null)
                     hashCode = hashCode * 59 + this.Did.GetHashCode();
                 return hashCode;
