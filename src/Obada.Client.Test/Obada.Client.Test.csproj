@@ -81,7 +81,7 @@ Contact: techops@obada.io
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\Obada.Client\Obada.Client.csproj">
-          <Project>{C1843972-D661-407D-A187-9E7D87D7609E}</Project>
+          <Project>{B3D6104D-5825-48A8-AB0C-8C54E9EF1DF7}</Project>
           <Name>Obada.Client</Name>
       </ProjectReference>
   </ItemGroup>
