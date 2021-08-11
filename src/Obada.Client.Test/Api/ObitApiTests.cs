@@ -119,8 +119,8 @@ namespace Obada.Client.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Obit obit = null;
-            //instance.Save(obit);
-            
+            //var response = instance.Save(obit);
+            //Assert.IsInstanceOf(typeof(Obit), response, "response is Obit");
         }
         
         /// <summary>

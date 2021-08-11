@@ -48,11 +48,10 @@ namespace Obada.Client.Model
         /// <param name="partNumber">Manufacturer provided. In cases where no part number is provided for the product, use model, or the most specific ID available from the manufacturer. MWCN2LL/A (an iPhone 11 Pro, Silver, 256GB, model A2160) (required).</param>
         /// <param name="serialNumberHash">Serial number hashed with sha256 hash function (required).</param>
         /// <param name="metadata">Get description from Rohi.</param>
-        /// <param name="documents">To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. .</param>
         /// <param name="structuredData">Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)).</param>
         /// <param name="modifiedOn">UNIX timestamp.</param>
         /// <param name="checksum">Hash calculated by SHA256 (previous Obit checksum + Obit data). .</param>
-        public Obit(string obitDid = default(string), string usn = default(string), List<string> alternateIds = default(List<string>), string ownerDid = default(string), string obdDid = default(string), string status = default(string), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), List<MetaDataRecord> metadata = default(List<MetaDataRecord>), List<DocumentLink> documents = default(List<DocumentLink>), List<StructureDataRecord> structuredData = default(List<StructureDataRecord>), long modifiedOn = default(long), string checksum = default(string))
+        public Obit(string obitDid = default(string), string usn = default(string), List<string> alternateIds = default(List<string>), string ownerDid = default(string), string obdDid = default(string), string status = default(string), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), List<MetaDataRecord> metadata = default(List<MetaDataRecord>), List<StructureDataRecord> structuredData = default(List<StructureDataRecord>), long modifiedOn = default(long), string checksum = default(string))
         {
             // to ensure "ownerDid" is required (not null)
             if (ownerDid == null)
@@ -100,7 +99,6 @@ namespace Obada.Client.Model
             this.ObdDid = obdDid;
             this.Status = status;
             this.Metadata = metadata;
-            this.Documents = documents;
             this.StructuredData = structuredData;
             this.ModifiedOn = modifiedOn;
             this.Checksum = checksum;
@@ -177,13 +175,6 @@ namespace Obada.Client.Model
         public List<MetaDataRecord> Metadata { get; set; }
 
         /// <summary>
-        /// To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. 
-        /// </summary>
-        /// <value>To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. </value>
-        [DataMember(Name="documents", EmitDefaultValue=false)]
-        public List<DocumentLink> Documents { get; set; }
-
-        /// <summary>
         /// Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value))
         /// </summary>
         /// <value>Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value))</value>
@@ -222,7 +213,6 @@ namespace Obada.Client.Model
             sb.Append("  PartNumber: ").Append(PartNumber).Append("\n");
             sb.Append("  SerialNumberHash: ").Append(SerialNumberHash).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  Documents: ").Append(Documents).Append("\n");
             sb.Append("  StructuredData: ").Append(StructuredData).Append("\n");
             sb.Append("  ModifiedOn: ").Append(ModifiedOn).Append("\n");
             sb.Append("  Checksum: ").Append(Checksum).Append("\n");
@@ -313,12 +303,6 @@ namespace Obada.Client.Model
                     this.Metadata.SequenceEqual(input.Metadata)
                 ) && 
                 (
-                    this.Documents == input.Documents ||
-                    this.Documents != null &&
-                    input.Documents != null &&
-                    this.Documents.SequenceEqual(input.Documents)
-                ) && 
-                (
                     this.StructuredData == input.StructuredData ||
                     this.StructuredData != null &&
                     input.StructuredData != null &&
@@ -365,8 +349,6 @@ namespace Obada.Client.Model
                     hashCode = hashCode * 59 + this.SerialNumberHash.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.Documents != null)
-                    hashCode = hashCode * 59 + this.Documents.GetHashCode();
                 if (this.StructuredData != null)
                     hashCode = hashCode * 59 + this.StructuredData.GetHashCode();
                 if (this.ModifiedOn != null)

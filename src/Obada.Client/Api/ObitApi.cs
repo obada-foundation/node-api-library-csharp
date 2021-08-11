@@ -117,8 +117,8 @@ namespace Obada.Client.Api
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
-        /// <returns></returns>
-        void Save (Obit obit = default(Obit));
+        /// <returns>Obit</returns>
+        Obit Save (Obit obit = default(Obit));
 
         /// <summary>
         /// Save Obit
@@ -128,8 +128,8 @@ namespace Obada.Client.Api
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SaveWithHttpInfo (Obit obit = default(Obit));
+        /// <returns>ApiResponse of Obit</returns>
+        ApiResponse<Obit> SaveWithHttpInfo (Obit obit = default(Obit));
         /// <summary>
         /// Search obits by query
         /// </summary>
@@ -256,8 +256,8 @@ namespace Obada.Client.Api
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SaveAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of Obit</returns>
+        System.Threading.Tasks.Task<Obit> SaveAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Save Obit
@@ -268,8 +268,8 @@ namespace Obada.Client.Api
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SaveWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (Obit)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Obit>> SaveWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Search obits by query
         /// </summary>
@@ -971,10 +971,11 @@ namespace Obada.Client.Api
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
-        /// <returns></returns>
-        public void Save (Obit obit = default(Obit))
+        /// <returns>Obit</returns>
+        public Obit Save (Obit obit = default(Obit))
         {
-             SaveWithHttpInfo(obit);
+             ApiResponse<Obit> localVarResponse = SaveWithHttpInfo(obit);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -982,8 +983,8 @@ namespace Obada.Client.Api
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SaveWithHttpInfo (Obit obit = default(Obit))
+        /// <returns>ApiResponse of Obit</returns>
+        public ApiResponse<Obit> SaveWithHttpInfo (Obit obit = default(Obit))
         {
 
             var localVarPath = "/obits";
@@ -1031,9 +1032,9 @@ namespace Obada.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<Obit>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (Obit) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Obit)));
         }
 
         /// <summary>
@@ -1042,10 +1043,11 @@ namespace Obada.Client.Api
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SaveAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of Obit</returns>
+        public async System.Threading.Tasks.Task<Obit> SaveAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await SaveWithHttpInfoAsync(obit, cancellationToken);
+             ApiResponse<Obit> localVarResponse = await SaveWithHttpInfoAsync(obit, cancellationToken);
+             return localVarResponse.Data;
 
         }
 
@@ -1055,8 +1057,8 @@ namespace Obada.Client.Api
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="obit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SaveWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (Obit)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Obit>> SaveWithHttpInfoAsync (Obit obit = default(Obit), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/obits";
@@ -1104,9 +1106,9 @@ namespace Obada.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<Obit>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (Obit) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Obit)));
         }
 
         /// <summary>

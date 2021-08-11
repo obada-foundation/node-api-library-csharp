@@ -324,7 +324,7 @@ No authorization required
 
 ## Save
 
-> void Save (Obit obit = null)
+> Obit Save (Obit obit = null)
 
 Save Obit
 
@@ -352,7 +352,8 @@ namespace Example
             try
             {
                 // Save Obit
-                apiInstance.Save(obit);
+                Obit result = apiInstance.Save(obit);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
@@ -374,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Obit**](Obit.md)
 
 ### Authorization
 
@@ -389,7 +390,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | Save Obit response |  -  |
 | **422** | The submitted entity could not be processed. |  -  |
 | **500** | Internal server error. |  -  |
 

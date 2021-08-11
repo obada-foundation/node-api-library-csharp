@@ -146,14 +146,6 @@ namespace Obada.Client.Test
             // TODO unit test for the property 'Metadata'
         }
         /// <summary>
-        /// Test the property 'Documents'
-        /// </summary>
-        [Test]
-        public void DocumentsTest()
-        {
-            // TODO unit test for the property 'Documents'
-        }
-        /// <summary>
         /// Test the property 'StructuredData'
         /// </summary>
         [Test]

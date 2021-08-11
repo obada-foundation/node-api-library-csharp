@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **PartNumber** | **string** | Manufacturer provided. In cases where no part number is provided for the product, use model, or the most specific ID available from the manufacturer. MWCN2LL/A (an iPhone 11 Pro, Silver, 256GB, model A2160) | 
 **SerialNumberHash** | **string** | Serial number hashed with sha256 hash function | 
 **Metadata** | [**List&lt;MetaDataRecord&gt;**](MetaDataRecord.md) | Get description from Rohi | [optional] 
-**Documents** | [**List&lt;DocumentLink&gt;**](DocumentLink.md) | To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard.  | [optional] 
 **StructuredData** | [**List&lt;StructureDataRecord&gt;**](StructureDataRecord.md) | Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)) | [optional] 
 **ModifiedOn** | **long** | UNIX timestamp | [optional] 
 **Checksum** | **string** | Hash calculated by SHA256 (previous Obit checksum + Obit data).  | [optional] 

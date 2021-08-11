@@ -117,7 +117,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.Checksum](docs/Checksum.md)
- - [Model.DocumentLink](docs/DocumentLink.md)
  - [Model.InlineResponse200](docs/InlineResponse200.md)
  - [Model.InternalServerError](docs/InternalServerError.md)
  - [Model.MetaDataRecord](docs/MetaDataRecord.md)
