@@ -78,7 +78,7 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            Configuration.Default.BasePath = "https://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obit = new Obit(); // Obit |  (optional) 
 
@@ -102,7 +102,7 @@ namespace Example
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://obs.node.obada.io*
+All URIs are relative to *https://obs.node.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

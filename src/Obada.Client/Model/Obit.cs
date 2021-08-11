@@ -40,19 +40,19 @@ namespace Obada.Client.Model
         /// </summary>
         /// <param name="obitDid">OBADA decentralized identifier.</param>
         /// <param name="usn">Test An 8-12 character “URL Shortened” obit. Create the USN by Base(58) encoding the OBIT ID. Take the first 8 characters. Check for duplicates. With 16 million OBITs there is a 40% chance of collision. If so, add 4 characters. Repeat as necessary until a unique USN is generated. .</param>
-        /// <param name="obitAlternateIds">Client generated things. First hash + last hash.</param>
+        /// <param name="alternateIds">Client generated things. First hash + last hash.</param>
         /// <param name="ownerDid">Owner is the person/entity that owns the obit and the physical asset it represents. Format is a DID like did:obada:owner:1234. However in the current version only test numbers will be used. (required).</param>
         /// <param name="obdDid">Future use. The OBD DID is formatted like did:obada:obd:1234, which represents a utility token tracking orders and proofs..</param>
-        /// <param name="obitStatus">Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER .</param>
+        /// <param name="status">Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER .</param>
         /// <param name="manufacturer">Waiting more specific details from Rohi (required).</param>
         /// <param name="partNumber">Manufacturer provided. In cases where no part number is provided for the product, use model, or the most specific ID available from the manufacturer. MWCN2LL/A (an iPhone 11 Pro, Silver, 256GB, model A2160) (required).</param>
         /// <param name="serialNumberHash">Serial number hashed with sha256 hash function (required).</param>
         /// <param name="metadata">Get description from Rohi.</param>
-        /// <param name="docLinks">To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. .</param>
+        /// <param name="documents">To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. .</param>
         /// <param name="structuredData">Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)).</param>
         /// <param name="modifiedOn">UNIX timestamp.</param>
         /// <param name="checksum">Hash calculated by SHA256 (previous Obit checksum + Obit data). .</param>
-        public Obit(string obitDid = default(string), string usn = default(string), List<string> obitAlternateIds = default(List<string>), string ownerDid = default(string), string obdDid = default(string), string obitStatus = default(string), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), List<MetaDataRecord> metadata = default(List<MetaDataRecord>), List<DocumentLink> docLinks = default(List<DocumentLink>), List<StructureDataRecord> structuredData = default(List<StructureDataRecord>), long modifiedOn = default(long), string checksum = default(string))
+        public Obit(string obitDid = default(string), string usn = default(string), List<string> alternateIds = default(List<string>), string ownerDid = default(string), string obdDid = default(string), string status = default(string), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), List<MetaDataRecord> metadata = default(List<MetaDataRecord>), List<DocumentLink> documents = default(List<DocumentLink>), List<StructureDataRecord> structuredData = default(List<StructureDataRecord>), long modifiedOn = default(long), string checksum = default(string))
         {
             // to ensure "ownerDid" is required (not null)
             if (ownerDid == null)
@@ -96,11 +96,11 @@ namespace Obada.Client.Model
 
             this.ObitDid = obitDid;
             this.Usn = usn;
-            this.ObitAlternateIds = obitAlternateIds;
+            this.AlternateIds = alternateIds;
             this.ObdDid = obdDid;
-            this.ObitStatus = obitStatus;
+            this.Status = status;
             this.Metadata = metadata;
-            this.DocLinks = docLinks;
+            this.Documents = documents;
             this.StructuredData = structuredData;
             this.ModifiedOn = modifiedOn;
             this.Checksum = checksum;
@@ -124,8 +124,8 @@ namespace Obada.Client.Model
         /// Client generated things. First hash + last hash
         /// </summary>
         /// <value>Client generated things. First hash + last hash</value>
-        [DataMember(Name="obit_alternate_ids", EmitDefaultValue=false)]
-        public List<string> ObitAlternateIds { get; set; }
+        [DataMember(Name="alternate_ids", EmitDefaultValue=false)]
+        public List<string> AlternateIds { get; set; }
 
         /// <summary>
         /// Owner is the person/entity that owns the obit and the physical asset it represents. Format is a DID like did:obada:owner:1234. However in the current version only test numbers will be used.
@@ -145,8 +145,8 @@ namespace Obada.Client.Model
         /// Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER 
         /// </summary>
         /// <value>Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER </value>
-        [DataMember(Name="obit_status", EmitDefaultValue=false)]
-        public string ObitStatus { get; set; }
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Waiting more specific details from Rohi
@@ -180,8 +180,8 @@ namespace Obada.Client.Model
         /// To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. 
         /// </summary>
         /// <value>To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. </value>
-        [DataMember(Name="doc_links", EmitDefaultValue=false)]
-        public List<DocumentLink> DocLinks { get; set; }
+        [DataMember(Name="documents", EmitDefaultValue=false)]
+        public List<DocumentLink> Documents { get; set; }
 
         /// <summary>
         /// Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value))
@@ -214,15 +214,15 @@ namespace Obada.Client.Model
             sb.Append("class Obit {\n");
             sb.Append("  ObitDid: ").Append(ObitDid).Append("\n");
             sb.Append("  Usn: ").Append(Usn).Append("\n");
-            sb.Append("  ObitAlternateIds: ").Append(ObitAlternateIds).Append("\n");
+            sb.Append("  AlternateIds: ").Append(AlternateIds).Append("\n");
             sb.Append("  OwnerDid: ").Append(OwnerDid).Append("\n");
             sb.Append("  ObdDid: ").Append(ObdDid).Append("\n");
-            sb.Append("  ObitStatus: ").Append(ObitStatus).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Manufacturer: ").Append(Manufacturer).Append("\n");
             sb.Append("  PartNumber: ").Append(PartNumber).Append("\n");
             sb.Append("  SerialNumberHash: ").Append(SerialNumberHash).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  DocLinks: ").Append(DocLinks).Append("\n");
+            sb.Append("  Documents: ").Append(Documents).Append("\n");
             sb.Append("  StructuredData: ").Append(StructuredData).Append("\n");
             sb.Append("  ModifiedOn: ").Append(ModifiedOn).Append("\n");
             sb.Append("  Checksum: ").Append(Checksum).Append("\n");
@@ -271,10 +271,10 @@ namespace Obada.Client.Model
                     this.Usn.Equals(input.Usn))
                 ) && 
                 (
-                    this.ObitAlternateIds == input.ObitAlternateIds ||
-                    this.ObitAlternateIds != null &&
-                    input.ObitAlternateIds != null &&
-                    this.ObitAlternateIds.SequenceEqual(input.ObitAlternateIds)
+                    this.AlternateIds == input.AlternateIds ||
+                    this.AlternateIds != null &&
+                    input.AlternateIds != null &&
+                    this.AlternateIds.SequenceEqual(input.AlternateIds)
                 ) && 
                 (
                     this.OwnerDid == input.OwnerDid ||
@@ -287,9 +287,9 @@ namespace Obada.Client.Model
                     this.ObdDid.Equals(input.ObdDid))
                 ) && 
                 (
-                    this.ObitStatus == input.ObitStatus ||
-                    (this.ObitStatus != null &&
-                    this.ObitStatus.Equals(input.ObitStatus))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Manufacturer == input.Manufacturer ||
@@ -313,10 +313,10 @@ namespace Obada.Client.Model
                     this.Metadata.SequenceEqual(input.Metadata)
                 ) && 
                 (
-                    this.DocLinks == input.DocLinks ||
-                    this.DocLinks != null &&
-                    input.DocLinks != null &&
-                    this.DocLinks.SequenceEqual(input.DocLinks)
+                    this.Documents == input.Documents ||
+                    this.Documents != null &&
+                    input.Documents != null &&
+                    this.Documents.SequenceEqual(input.Documents)
                 ) && 
                 (
                     this.StructuredData == input.StructuredData ||
@@ -349,14 +349,14 @@ namespace Obada.Client.Model
                     hashCode = hashCode * 59 + this.ObitDid.GetHashCode();
                 if (this.Usn != null)
                     hashCode = hashCode * 59 + this.Usn.GetHashCode();
-                if (this.ObitAlternateIds != null)
-                    hashCode = hashCode * 59 + this.ObitAlternateIds.GetHashCode();
+                if (this.AlternateIds != null)
+                    hashCode = hashCode * 59 + this.AlternateIds.GetHashCode();
                 if (this.OwnerDid != null)
                     hashCode = hashCode * 59 + this.OwnerDid.GetHashCode();
                 if (this.ObdDid != null)
                     hashCode = hashCode * 59 + this.ObdDid.GetHashCode();
-                if (this.ObitStatus != null)
-                    hashCode = hashCode * 59 + this.ObitStatus.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Manufacturer != null)
                     hashCode = hashCode * 59 + this.Manufacturer.GetHashCode();
                 if (this.PartNumber != null)
@@ -365,8 +365,8 @@ namespace Obada.Client.Model
                     hashCode = hashCode * 59 + this.SerialNumberHash.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.DocLinks != null)
-                    hashCode = hashCode * 59 + this.DocLinks.GetHashCode();
+                if (this.Documents != null)
+                    hashCode = hashCode * 59 + this.Documents.GetHashCode();
                 if (this.StructuredData != null)
                     hashCode = hashCode * 59 + this.StructuredData.GetHashCode();
                 if (this.ModifiedOn != null)

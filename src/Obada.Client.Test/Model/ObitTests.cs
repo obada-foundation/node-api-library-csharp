@@ -82,12 +82,12 @@ namespace Obada.Client.Test
             // TODO unit test for the property 'Usn'
         }
         /// <summary>
-        /// Test the property 'ObitAlternateIds'
+        /// Test the property 'AlternateIds'
         /// </summary>
         [Test]
-        public void ObitAlternateIdsTest()
+        public void AlternateIdsTest()
         {
-            // TODO unit test for the property 'ObitAlternateIds'
+            // TODO unit test for the property 'AlternateIds'
         }
         /// <summary>
         /// Test the property 'OwnerDid'
@@ -106,12 +106,12 @@ namespace Obada.Client.Test
             // TODO unit test for the property 'ObdDid'
         }
         /// <summary>
-        /// Test the property 'ObitStatus'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void ObitStatusTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'ObitStatus'
+            // TODO unit test for the property 'Status'
         }
         /// <summary>
         /// Test the property 'Manufacturer'
@@ -146,12 +146,12 @@ namespace Obada.Client.Test
             // TODO unit test for the property 'Metadata'
         }
         /// <summary>
-        /// Test the property 'DocLinks'
+        /// Test the property 'Documents'
         /// </summary>
         [Test]
-        public void DocLinksTest()
+        public void DocumentsTest()
         {
-            // TODO unit test for the property 'DocLinks'
+            // TODO unit test for the property 'Documents'
         }
         /// <summary>
         /// Test the property 'StructuredData'

@@ -1,6 +1,6 @@
 # Obada.Client.Api.ObitApi
 
-All URIs are relative to *http://obs.node.obada.io*
+All URIs are relative to *https://obs.node.obada.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            Configuration.Default.BasePath = "https://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obit = new Obit(); // Obit |  (optional) 
 
@@ -112,7 +112,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            Configuration.Default.BasePath = "https://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var requestObitDID = new RequestObitDID(); // RequestObitDID |  (optional) 
 
@@ -190,7 +190,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            Configuration.Default.BasePath = "https://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID or USN argument
 
@@ -268,7 +268,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            Configuration.Default.BasePath = "https://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obitDid = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID or USN argument
 
@@ -345,7 +345,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            Configuration.Default.BasePath = "https://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var obit = new Obit(); // Obit |  (optional) 
 
@@ -422,7 +422,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            Configuration.Default.BasePath = "https://obs.node.obada.io";
             var apiInstance = new ObitApi(Configuration.Default);
             var q = fe403a1afe16203f4b8bb3a0e72d3e17567897bc15293e4a87b663e441030aea;  // string | Query argument that used for a fulltext search (optional) 
             var offset = 56;  // int? | Number of records to skip for pagination. (optional)  (default to 0)
